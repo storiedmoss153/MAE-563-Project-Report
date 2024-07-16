@@ -1,5 +1,4 @@
-\begin{verbatim}
-    module module_1
+module module_1
     use universal_module
     use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
     implicit none
@@ -103,4 +102,3 @@
         M1_output_matrix = [T1,p1,Tt1,pt1,cp1,a1,V1]
     end function M1_all_function
 end module module_1
-\end{verbatim}

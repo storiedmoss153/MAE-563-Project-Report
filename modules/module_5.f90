@@ -1,5 +1,4 @@
-\begin{verbatim}
-    module module_5
+module module_5
     use universal_module
     use module_4
     use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
@@ -82,4 +81,3 @@
         M5_output_array = [M4,pt4,p4,Tt4,T4,cp4,a4,V4,delta_se4,delta_s14]
     end function M5_all_function
 end module module_5
-\end{verbatim}

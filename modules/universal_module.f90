@@ -1,5 +1,4 @@
-\begin{verbatim}
-    module universal_module
+module universal_module
     use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
     implicit none
 
@@ -178,4 +177,3 @@
         end if
     end function quadratic_equation_rr
 end module universal_module
-\end{verbatim}

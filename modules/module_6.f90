@@ -1,5 +1,4 @@
-\begin{verbatim}
-    module module_6
+module module_6
     use universal_module
     use module_5
     use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
@@ -104,4 +103,3 @@
                            Veq,TSFC,Isp,eta_th,eta_p,eta_o,prop_power]
     end function M6_all_function
 end module module_6
-\end{verbatim}

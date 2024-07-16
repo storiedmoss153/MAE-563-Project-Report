@@ -1,5 +1,4 @@
-\begin{verbatim}
-    module module_4
+module module_4
     use universal_module
     use module_3
     use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
@@ -98,4 +97,3 @@
                             delta_s3e,delta_s1e]
     end function M4_all_function
 end module module_4
-\end{verbatim}
