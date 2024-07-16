@@ -1,5 +1,5 @@
 \begin{verbatim}
-module module_3
+    module module_3
     use universal_module
     use module_2
     use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
@@ -98,25 +98,24 @@ module module_3
         Temp_n_pres = [T3,p3,pt3]
     end function M3_total_to_static_relations
 
-    function M3_entropy_increase(Tt2,T3,Tt3,pt2,pt3) result(delta_s23)
+    function M3_entropy_increase(Tt2,Tt3,pt2,pt3,cp3) result(delta_s23)
         ! Entropy increase from state 2 to 3, and state 3 to e
         implicit none
 
-        real(dp), intent(in) :: Tt2, T3, Tt3, pt2, pt3
-        real(dp) :: delta_s23, cp
+        real(dp), intent(in) :: Tt2, Tt3, pt2, pt3, cp3
+        real(dp) :: delta_s23
 
-        cp = M3_pressure_coefficient(T3)
-        delta_s23 = cp * log(Tt3 / Tt2) - R_3 * log(pt3 / pt2)
+        delta_s23 = cp3 * log(Tt3 / Tt2) - R_3 * log(pt3 / pt2)
     end function M3_entropy_increase
 
-    function M3_all_function(Tt2,Tt3_max,p2,pt2,M2,delta_s12,Tt3_in) &
+    function M3_all_function(Tt2,Tt3_max,p2,pt2,M2,delta_s12,Tt3_in,cp3_in) &
          result(M3_output_matrix)
         ! Module 3 function that combines all previous functions
         ! and outputs required data for state 3
         implicit none
 
         real(dp), intent(in) :: Tt2, Tt3_max, p2, pt2, M2, delta_s12
-        real(dp), optional :: Tt3_in
+        real(dp), optional :: Tt3_in, cp3_in
         real(dp) :: M3, q23, T3, Tt3, p3, cp3, pt3, a3, V3, delta_s23
         real(dp) :: delta_s13
         real(dp) :: comb_conditions(2), T2S_relaitons(3)
@@ -138,11 +137,15 @@ module module_3
         p3 = T2S_relaitons(2)
         pt3 = T2S_relaitons(3)
 
-        cp3 = M3_pressure_coefficient(T3)
+        if(present(cp3_in)) then
+            cp3 = cp3_in
+        else
+            cp3 = M3_pressure_coefficient(T3)
+        end if
         a3 = M1_speed_of_sound(T3,gamma_3,R_3)
         V3 = M1_flow_speed(M3,a3)
 
-        delta_s23 = M3_entropy_increase(Tt2,T3,Tt3,pt2,pt3)
+        delta_s23 = M3_entropy_increase(Tt2,Tt3,pt2,pt3,cp3)
         delta_s13 = delta_s12 + delta_s23
 
         M3_output_matrix = [Tt3,M3,q23,T3,p3,pt3,cp3,delta_s23,delta_s13]
