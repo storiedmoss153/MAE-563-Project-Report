@@ -68,7 +68,48 @@ The
 The
 
 \subsection{State 1: Free Stream}
-The
+The properties of the free stream entering the propulsion system were modeled using the isentropic model of the atmosphere. This was split into two sections, properties for altitudes under 7958 meters and for properties above 7958 meters. For altitudes under 7958 meters, Eq. \ref{eqn:T1} and Eq. \ref{eqn:p1} were used with $T_s=288$, $p_s=101.3$ kPa, $\gamma=1.4$, and $z^*=8404$ m to find the static temperature $T_1$ and static pressure $p_1$ of state 1.
+
+\begin{equation}
+    \label{eqn:T1}
+    \frac{T_1}{T_s}\equiv\frac{T(z)}{T_s}=\left[1-\frac{\gamma-1}{\gamma}(z/z^*)\right]
+\end{equation}
+
+\begin{equation}
+    \label{eqn:p1}
+    \frac{p_1}{p_s}\equiv\frac{p(z)}{p_s}=\left[1-\frac{\gamma-1}{\gamma}(z/z^*)\right]^\frac{\gamma}{\gamma-1}
+\end{equation}
+
+For altitudes $z>7958$ m, $T_1\equiv T(z)=$ constant = 210 K while the static pressure was solved for using,
+
+\begin{equation}
+    \label{eqn:p1}
+    p_1\equiv p(z)=33.6e^{-\left[\frac{z-7958}{6605}\right]}
+\end{equation}
+
+With the calculated $T_1$ and $p_1$ and the inputted flight Mach number $M_1$, the total temperature $T_t1$ and pressure $p_t1$ can be calculated from the total-to-static relations for temperature using Eq. \ref{eqn:Tt1} and pressure using Eq. \ref{eqn:pt1}.
+
+\begin{equation}
+    \label{eqn:Tt1}
+    \frac{T_{t1}}{T_1}=\left[1+\frac{\gamma-1}{2}M_1^2\right]
+\end{equation}
+
+\begin{equation}
+    \label{eqn:pt1}
+    \frac{p_{t1}}{p_1}=\left[1+\frac{\gamma-1}{2}M_1^2\right]^\frac{\gamma}{\gamma-1}
+\end{equation}
+
+After calculating the total and static temperature and pressure of state 1, the speed of sound $a_1$ and flight speed $V_1$ were calculated.
+
+\begin{equation}
+    \label{eqn:a1}
+    a_1=\sqrt{\gamma RT_1}
+\end{equation}
+
+\begin{equation}
+    \label{eqh:V1}
+    V_1=M_1\cdot a_1
+\end{equation}
 
 \subsection{State 2: Inlet/Diffuser}
 The
