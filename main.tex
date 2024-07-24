@@ -34,30 +34,75 @@ These instructions give you guidelines for preparing papers for AIAA Technical J
 \section{Introduction}
 \lettrine{T}{he} primary focus of this project was to develop an analysis tool for studies of non-ideal ramjet propulsion performance. This tool was developed using FORTRAN for the non-ideal ramjet propulsion system with a converging-only fixed-geometry nozzle in Fig. \ref{fig:propsys}.
 
-\begin{figure}[hbt!]
-\centering
-\includegraphics[width=0.75\textwidth]{media/the_ramjet.png}
-\caption{\label{fig:propsys} The Ramjet Propulsion System}
+\begin{figure}[hbt!] % Diagram of ram/scramjet propulsion system with state labels
+    \centering
+    \includegraphics[width=0.75\textwidth]{media/the_ramjet.png}
+    \caption{\label{fig:propsys} The Ramjet Propulsion System}
 \end{figure}
 
 To analyze the ramjet, the analysis tool was broken down into 5 modules focusing on an individual section of the flow path through the jet in Fig. \ref{fig:propsys} and one module for calculating performance parameters.
 
-\begin{table}[hbt!]
-\caption{\label{tab:table1} Parametric Analysis Tool Inputs}
-\centering
-\begin{tabular}{lcc}
-\hline
-Name& Variable& Units\\\hline
-Flight Altitude& $z$& m\\
-Flight Mach Number& $M_1$\\
-Inlet/Diffuser Efficiency& $\eta_d$\\
-Diffuser Exit Mach Number& $M_2$\\
-Combustor Exit Max Allowable Total Temperature& $(T_{t3})_{max}$& K\\
-Chosen Fuel Heating Value& $q_f$& MJ/kg\\
-Nozzle Efficiency& $\eta_n$\\
-Nozzle Exit Area& $A_e$& $m^2$\\
-\hline
-\end{tabular}
+\begin{table}[hbt!] % Table of Tool Inputs
+    \caption{\label{tab:tool_inputs} Parametric Analysis Tool Inputs}
+    \centering
+    \begin{tabular}{lcc}
+        \hline
+        Name& Variable& Units\\\hline
+        Flight Altitude& $z$& m\\
+        Flight Mach Number& $M_1$\\
+        Inlet/Diffuser Efficiency& $\eta_d$\\
+        Diffuser Exit Mach Number& $M_2$\\
+        Combustor Exit Max Allowable Total Temperature& $(T_{t3})_{max}$& K\\
+        Chosen Fuel Heating Value& $q_f$& MJ/kg\\
+        Nozzle Efficiency& $\eta_n$\\
+        Nozzle Exit Area& $A_e$& $m^2$\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[hbt!] % Table of State Outputs
+    \caption{\label{tab:state_outputs} Parametric Analysis Tool State Outputs}
+    \centering
+    \begin{tabular}{llc}
+        \hline
+        Name& Variable& Units\\\hline
+        Total Temperature& $T_{tj}$& K\\
+        Static Temperature& $T_{j}$& K\\
+        Total Pressure& $p_{tj}$& kPa\\
+        Static Pressure& $p_j$& kPa\\
+        Pressure Coefficient& $c_{pj}$& $\frac{J}{kg\cdot K}$\\
+        Flow Mach number& $M_j$\\
+        Speed of Sound& $a_j$& m/s\\
+        Flow Velocity& $V_j$& m/s\\
+        Entropy Change from Previous State& $\Delta s_{(j-1),j}$& $\frac{J}{kg\cdot K}$\\
+        Entropy Change from State 1& $\Delta s_{1,j}$& $\frac{J}{kg\cdot K}$\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[hbt!] % Table of Performance Outputs
+    \caption{\label{tab:perf_outputs} Parametric Analysis Tool Performance Outputs}
+    \centering
+    \begin{tabular}{llc}
+        \hline
+        Name& Variable& Units\\\hline
+        Heat per Unit Mass Added in the Combustor& $q_{23}$& MJ/kg\\
+        Nozzle Exit Mass Flux& $\dot m_e$& kg/s\\
+        Inlet Mass Flux& $\dot m_i$& kg/s\\
+        Fuel Mass Flux& $\dot m_f$& kg/s\\
+        Fuel-Air Mass Ratio& $f$\\
+        Jet Thrust& $T_{jet}$& N\\
+        Pressure Thrust& $T_{pressure}$& N\\
+        Total Thrust& $T_total$& N\\
+        Equivalent Velocity& $V_{eq}$& m/s\\
+        Thrust Specific Fuel Consumption& $TSFC$& $\frac{kg/hr}{N}$\\
+        Specific Impulse& $I_{sp}$& s\\
+        Thermal Efficiency& $\eta_{th}$\\
+        Propulsive Efficiency& $\eta_p$\\
+        Overall Efficiency& $\eta_o$\\
+        Propulsive Power& $P$& W\\
+        \hline
+    \end{tabular}
 \end{table}
 
 
@@ -133,14 +178,14 @@ The
 \subsection{Part A: \textit{T-s} Diagrams for Validation Cases}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part A: T-s diagram for validation case A
     \centering
     \includegraphics[]{media/ts_plot_files/TS_plot_for_case_7.pdf}
     \caption{\label{fig:partavalida}Validation Case A}
 \end{figure}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part A: T-s diagram for validation case B
     \centering
     \includegraphics[]{media/ts_plot_files/TS_plot_for_case_8.pdf}
     \caption{\label{fig:partavalidb}Validation Case B}
@@ -150,14 +195,14 @@ The
 \subsection{Part B: Atmospheric Model Validation}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part B: Atmosphere Validation comparing Isen to ICAO: Temperature
     \centering
     \includegraphics[]{media/atmosphere_validation_files/ICAO_vs_ISEN_temperature.pdf}
     \caption{\label{fig:partbtemp}ICAO Standard Atmosphere vs Isentropic Model (Temperature)}
 \end{figure}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part B: Atmosphere Validation comparing Isen to ICAO: Pressure
     \centering
     \includegraphics[]{media/atmosphere_validation_files/ICAO_vs_ISEN_pressure.pdf}
     \caption{\label{fig:partbpres}ICAO Standard Atmosphere vs Isentropic Model (Pressure)}
@@ -170,7 +215,7 @@ The
 \subsubsection{Overall Efficiency}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part C: overall efficiency for varied flight mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_c_eta_o.pdf}
     \caption{\label{fig:partcetao}Overall Efficiency vs Flight Mach Number}
@@ -180,7 +225,7 @@ The
 \subsubsection{Total Thrust}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part C: total thrust for varied flight mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_c_T.pdf}
     \caption{\label{fig:partct}Total Thrust vs Flight Mach Number}
@@ -190,7 +235,7 @@ The
 \subsubsection{Thrust Specific Fuel Consumption}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part C: TSFC for varied flight mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_c_TSFC.pdf}
     \caption{\label{fig:partctsfc}TSFC vs Flight Mach Number}
@@ -203,7 +248,7 @@ The
 \subsubsection{Overall Efficiency}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part D: overall efficiency for varied flight altitude
     \centering
     \includegraphics[]{media/performance_parameter_files/part_d_eta_o.pdf}
     \caption{\label{fig:partdetao}Overall Efficiency vs Flight Altitude}
@@ -213,7 +258,7 @@ The
 \subsubsection{Total Thrust}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part D: total thrust for varied flight altitude
     \centering
     \includegraphics[]{media/performance_parameter_files/part_d_T.pdf}
     \caption{\label{fig:partdt}Total Thrust vs Flight Altitude}
@@ -223,7 +268,7 @@ The
 \subsubsection{Thrust Specific Fuel Consumption}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part D: TSFC for varied flight altitude
     \centering
     \includegraphics[]{media/performance_parameter_files/part_d_TSFC.pdf}
     \caption{\label{fig:partdtsfc}TSFC vs Flight Altitude}
@@ -233,13 +278,13 @@ The
 \subsection{Part E: Optimizing TSFC}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part E: optimize overall efficiency and TSFC for varied flight altitude with Mach 1-5
     \centering
     \includegraphics[]{media/performance_parameter_files/part_e_range_1_5.pdf}
     \caption{\label{fig:parte1-5}Optimizing Overall Efficiency and TSFC, Mach 1-5}
 \end{figure}
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part E: optimize overall efficiency and TSFC for varied flight altitude with Mach 1-10
     \centering
     \includegraphics[]{media/performance_parameter_files/part_e_range_1_10.pdf}
     \caption{\label{fig:parte1-10}Optimizing Overall Efficiency and TSFC, Mach 1-10}
@@ -251,7 +296,7 @@ The
 \subsubsection{Overall Efficiency}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part F: overall efficiency for varied inlet/diffuser efficiency
     \centering
     \includegraphics[]{media/performance_parameter_files/part_f_eta_o.pdf}
     \caption{\label{fig:partfetao}Overall Efficiency vs Inlet/Diffuser Efficiency}
@@ -261,7 +306,7 @@ The
 \subsubsection{Total Thrust}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part F: total thrust for varied inlet/diffuser efficiency
     \centering
     \includegraphics[]{media/performance_parameter_files/part_f_T.pdf}
     \caption{\label{fig:partft}Total Thrust vs Inlet/Diffuser Efficiency}
@@ -271,7 +316,7 @@ The
 \subsubsection{Thrust Specific Fuel Consumption}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part F: TSFC for varied inlet/diffuser efficiency
     \centering
     \includegraphics[]{media/performance_parameter_files/part_f_TSFC.pdf}
     \caption{\label{fig:partftsfc}TSFC vs Inlet/Diffuser Efficiency}
@@ -284,7 +329,7 @@ The
 \subsubsection{Overall Efficiency}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part G: overall efficiency for varied nozzle efficiency
     \centering
     \includegraphics[]{media/performance_parameter_files/part_g_eta_o.pdf}
     \caption{\label{fig:partgetao}Overall Efficiency vs Nozzle Efficiency}
@@ -294,7 +339,7 @@ The
 \subsubsection{Total Thrust}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part G: total thrust for varied nozzle efficiency
     \centering
     \includegraphics[]{media/performance_parameter_files/part_g_T.pdf}
     \caption{\label{fig:partgt}Total Thrust vs Nozzle Efficiency}
@@ -304,7 +349,7 @@ The
 \subsubsection{Thrust Specific Fuel Consumption}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part G: TSFC for varied nozzle efficiency
     \centering
     \includegraphics[]{media/performance_parameter_files/part_g_TSFC.pdf}
     \caption{\label{fig:partgtsfc}TSFC vs Nozzle Efficiency}
@@ -317,7 +362,7 @@ The
 \subsubsection{Overall Efficiency}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part H: overall efficiency for varied combustor mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_eta_o.pdf}
     \caption{\label{fig:parthetao}Overall Efficiency vs \texorpdfstring{\textit{$M_2$}}{M2}}
@@ -327,7 +372,7 @@ The
 \subsubsection{Total Thrust}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part H: total thrust for varied combustor mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_T.pdf}
     \caption{\label{fig:partht}Total Thrust vs \texorpdfstring{\textit{$M_2$}}{M2}}
@@ -337,7 +382,7 @@ The
 \subsubsection{Thrust Specific Fuel Consumption}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part H: TSFC for varied combustor mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_TSFC.pdf}
     \caption{\label{fig:parthtsfc}TSFC vs \texorpdfstring{\textit{$M_2$}}{M2}}
@@ -347,14 +392,14 @@ The
 \subsection{Part I: Optimzed Ram/Scramjet Propulsion System}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part I: propulsion design optimize total thrust
     \centering
     \includegraphics[]{media/propulsion_design_files/total_thrust_plot.pdf}
     \caption{\label{fig:partithrust}Total Thrust}
 \end{figure}
 The
 
-\begin{figure}[hbt!]
+\begin{figure}[hbt!] % Part I: propulsion design optimize overall efficiency
     \centering
     \includegraphics[]{media/propulsion_design_files/eta_o_plot.pdf}
     \caption{\label{fig:partietao}Overall Efficiency}
