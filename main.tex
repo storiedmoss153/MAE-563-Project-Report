@@ -8,6 +8,7 @@
 \usepackage[version=4]{mhchem}
 \usepackage{siunitx}
 \usepackage{longtable,tabularx}
+\usepackage[super]{nth}
 \setlength\LTleft{0pt}
 
 \title{Design and Analysis of Ram/Scramjet Engine}
@@ -25,8 +26,6 @@ These instructions give you guidelines for preparing papers for AIAA Technical J
 
 
 \section*{Nomenclature}
-
-\noindent(Nomenclature entries should have the units identified)
 
 \input{nomenclature}
 
@@ -164,15 +163,143 @@ The inlet/diffuser of the ramjet engine does not do work on or take work out of 
     T_{t2}=T_{t1}
 \end{equation}
 
-Then with the total temperature calculated, the given combustor inlet Mach number $M_2$ can be used to calculate the static temperature
+Then with the total temperature calculated, the given combustor inlet Mach number $M_2$ can be used to calculate the static temperature using the total-to-static relation,
+
+\begin{equation}
+    \label{eqn:T2}
+    \frac{T_{t2}}{T_2}=\left[1+\frac{\gamma-1}{2}M_2^2\right]
+\end{equation}
+
+The speed of sound and the flow speed entering the combustor can then be calculate from the computed state 2 static temperature using Eq. \ref{eqn:a2} and Eq. \ref{eqn:V2}, respectively.
+
+\begin{equation}
+    \label{eqn:a2}
+    a_2=\sqrt{\gamma R T_2}
+\end{equation}
+
+\begin{equation}
+    \label{eqn:V2}
+    V_2=M_2\cdot a_2
+\end{equation}
+
+To obtain the total pressure at state 2, the free stream Mach number $M_1$ and the given inlet/diffuser isentropic efficiency $\eta_d$ can be used in the following equation.
+
+\begin{equation}
+    \label{eqn:pt2}
+    \frac{p_{t2}}{p_1}=\left[1+\eta_d\frac{\gamma-1}{2}M_1^2\right]^{\frac{\gamma}{\gamma-1}}
+\end{equation}
+
+With the total pressure at state 2 calculated, the static pressure can be calculated from the total-to-static relation,
+
+\begin{equation}
+    \label{eqn:p2}
+    \frac{p_{t2}}{p_2}=\left[1+\frac{\gamma-1}{2}M_2^2\right]^{\frac{\gamma}{\gamma-1}}
+\end{equation}
+
+With the total temperature and pressure calculated, the entropy increase from the sources of irreversibility in the inlet/diffuser flow was calcualted using the Second Law as,
+
+\begin{equation}
+    \label{eqn:dels12}
+    \Delta s_{12}\equiv \left(s_2-s_1\right)=\left(s_{t2}-s_{t1}\right)=c_p \ln\frac{T_{t2}}{T_{t1}}-R\ln\frac{p_{t2}}{p_{t1}}
+\end{equation}
 
 \subsection{State 3: Combustor}
 The
 
-\subsection{State 4: Internal Converging Nozzle Flow}
-The
+\begin{equation}
+    \label{eqn:latercp}
+    c_p (T)=a+bT
+\end{equation}
 
-\subsection{State 5: External Flow Past Nozzle Exit}
+\subsection{State e: Internal Converging Nozzle Flow}
+For the internal flow in the conberging nozzle, seen in fig. \ref{fig:propsys}, it was first necessary to see if the exit flow of the nozzle is choked. First, the test Mach number was calculated using,
+
+\begin{equation}
+    \label{eqn:M'}
+    M'\equiv\left\{\frac{2}{\gamma-1}\cdot\frac{\eta_n\left[1-\left(p_1/p_{t3}\right)^{\frac{\gamma-1}{\gamma}}\right]}{1-\eta_n\left[1-\left(p_1/p_{t3}\right)^{\frac{\gamma-1}{\gamma}}\right]}\right\}^{1/2}
+\end{equation}
+
+From the test Mach number, the state of the nozzle can be determined. If $M'<1$ then the nozzle is not choked and the exit Mach and static pressure can be calculated as,
+
+\begin{equation}
+    \label{eqn:nchokeMe}
+    M_e=M'
+\end{equation}
+
+and,
+
+\begin{equation}
+    \label{eqn:nchokepe}
+    p_e=p_1
+\end{equation}
+
+However, if $M'\geq1$ then the nozzle flow is choked and the exit Mach and static pressure can instead be calcualted as,
+
+\begin{equation}
+    \label{eqn:chokeMe}
+    M_e=1
+\end{equation}
+
+and,
+
+\begin{equation}
+    \label{eqn:chokepe}
+    p_e=p_{t3}\left[1-\frac{1}{\eta_n}\left(\frac{\gamma-1}{\gamma+1}\right)\right]^\frac{\gamma}{\gamma-1}
+\end{equation}
+
+The nozzle does not do work on or have work done on it by the gas nor does it transfer any heat between the gas, so by the \nth{1} Law,
+
+\begin{equation}
+    \label{eqn:Tte}
+    T_{te}=T_{t3}
+\end{equation}
+
+Then the static temperature and the total pressure for the nozzle exit were calculated using the total-to-static relations,
+
+\begin{equation}
+    \label{eqn:Te}
+    \frac{T_{te}}{T_e}=\left[1+\frac{\gamma-1}{2}M_e^2\right]
+\end{equation}
+
+\begin{equation}
+    \label{eqn:pte}
+    \frac{p_{te}}{p_e}=\left[1+\frac{\gamma-1}{2}M_e^2\right]^\frac{\gamma}{\gamma-1}
+\end{equation}
+
+With the total and static properties at the nozzle's exit, the speed of sound and flow velocity were found with,
+
+\begin{equation}
+    \label{eqn:ae}
+    a_e=\sqrt{\gamma R T_e}
+\end{equation}
+
+\begin{equation}
+    \label{eqn:Ve}
+    V_e=M_e\cdot a_e
+\end{equation}
+
+The exit mass flux of the nozzle was calculated using,
+
+\begin{equation}
+    \label{eqn:mdote}
+    \dot{m}_e=\rho_e V_e A_e=\frac{p_e}{R T_e}V_e A_e
+\end{equation}
+
+The entropy increase from the nozzle irreversiblities were calculated using,
+
+\begin{equation}
+    \label{eqn:dels3e}
+    \Delta s_{3e}\equiv\left(s_e-s_3\right)=\left(s_{te}-s_{t3}\right)=c_p \ln\frac{T_{te}}{T_{t3}}-R\ln\frac{p_{te}}{p_{t3}}
+\end{equation}
+
+where $c_p$ was calculated using Eq. \ref{eqn:latercp} for the exit temperature $T_e$. This entropy increase was then used to calculate the entropy increase from state 1 with,
+
+\begin{equation}
+    \label{eqn:dels1e}
+    \Delta s_{1e}=s_e-s_1=\Delta s_{12}+\Delta s_{23}+\Delta s_{3e}
+\end{equation}
+
+\subsection{State 4: External Flow Past Nozzle Exit}
 The
 
 \subsection{Ram/Scramjet Performance Parameters}
