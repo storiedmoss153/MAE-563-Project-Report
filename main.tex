@@ -204,18 +204,103 @@ With the total temperature and pressure calculated, the entropy increase from th
 \end{equation}
 
 \subsection{State 3: Combustor}
-The
+From this state onwards, $\gamma=1.3$ due to the addition of fuel into the air flow. To determine the Mach number $M_3$ and the total temperature $T_{t3}$, it was first required to determine if the combustor was thermally choked. The choked total temperature $\left(T_{t3}\right)_{choked}$ was calculated by setting $M_3=1$ and using,
+
+\begin{equation}
+    \label{eqn:Tt3choked}
+    \left(T_{t3}\right)_{choked}=T_{t2}\cdot\left\{\frac{1}{2(\gamma+1)}\cdot\frac{1}{M_2^2}\left(1+\gamma M_2^2\right)^2\left(1+\frac{\gamma-1}{2}M_2^2\right)^{-1}\right\}
+\end{equation}
+
+The calculated value of the choked total temperature was then compared against the given max temperature $\left(T_{t3}\right)_{max}=2400K$. If $\left(T_{t3}\right)_{choked}\leq\left(T_{t3}\right)_{max}$, then $M_3=1$ and $T_{t3}=\left(T_{t3}\right)_{choked}$. However, if $\left(T_{t3}\right)_{choked}>\left(T_{t3}\right)_{max}$, then $T_{t3}=\left(T_{t3}\right)_{max}$ and $M_3$ was calcualted by rearranging Eq. (\ref{eqn:Tt3/Tt2}) into a quadratic equation in terms of $\left(M_3^2\right)$.
+
+\begin{equation}
+    \label{eqn:Tt3/Tt2}
+    \frac{T_{t3}}{T_{t2}}=\frac{M_3^2}{M_2^2}\cdot\frac{\left(1+\gamma M_2^2\right)^2}{\left(1+\gamma M_3^2\right)^2}\cdot\frac{\left(1+\frac{\gamma-1}{2}M_3^2\right)}{\left(1+\frac{\gamma-1}{2}M_2^2\right)}
+\end{equation}
+
+First, the constant,
+
+\begin{equation}
+    \label{eqn:C}
+    C\equiv\frac{T_{t3}}{T_{t2}}\cdot\frac{\left(1+\frac{\gamma-1}{2}M_2^2\right)}{\left(1+\gamma M_2^2\right)^2}M_2^2=\frac{\left(1+\frac{\gamma-1}{2}M_3^2\right)}{\left(1+\gamma M_3^2\right)^2}M_3^2
+\end{equation}
+
+then Eq. (\ref{eqn:Tt3/Tt2}) was rearranged into the quadratic form of,
+
+\begin{equation}
+    \label{eqn:quad}
+    \underbrace{\left[C\gamma^2-\frac{\gamma-1}{2}\right]}_\text{a}
+    \left(M_3^2\right)^2+
+    \underbrace{\left[2C\gamma-1\right]}_\text{b}
+    \left(M_3^2\right)+
+    \underbrace{C}_\text{c}
+    =0
+\end{equation}
+
+and the constants used to solve for $M_3$.
+
+\begin{equation}
+    \label{eqn:quadeq}
+    \left(M_3^2\right)=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\end{equation}
+
+The only roots that were selected from the quadratic equation where those where $\left(M_3^2\right)>0$. Then if $M_2<1$ then $M_3>M_2$ and $M_3\leq1$, and if $M_2>1$ then $M_3<M_2$ and $M_3\geq1$. The heat per unit mass $q_{23}$ that was added in the combustor was calculated using Eq. (\ref{eqn:q23}).
 
 \begin{equation}
     \label{eqn:q23}
     q_{23}=\int_{T_{t2}}^{T_{t3}} c_p(T) \,dT=a\left[T_{t3}-T_{t2}\right]+\frac{1}{2}b\left[T_{t3}^2-T_{t2}^2\right]
 \end{equation}
 
-The
+The specific heat model,
 
 \begin{equation}
     \label{eqn:latercp}
     c_p (T)=a+bT
+\end{equation}
+
+was used for calculating the specific heat in Eq. (\ref{eqn:q23}) where $(a,b)=(986,0179)$. From the calculated Mach number, the static temperature $T_3$ and the total pressure $p_{t3}$ using their respective total-to-static relations.
+
+\begin{equation}
+    \label{eqn:T3}
+    \frac{T_{t3}}{T_3}=\left[1+\frac{\gamma-1}{2}M_3^2\right]
+\end{equation}
+
+\begin{equation}
+    \label{eqn:pt3}
+    \frac{p_{t3}}{p_3}=\left[1+\frac{\gamma-1}{2}M_3^2\right]^\frac{\gamma}{\gamma-1}
+\end{equation}
+
+Since the combustor operates at constant pressure,
+
+\begin{equation}
+    \label{eqn:p3}
+    p_3=p_2
+\end{equation}
+
+Then the speed of sound and flow velocity were calculated.
+
+\begin{equation}
+    \label{eqn:a3}
+    a_3=\sqrt{\gamma RT_3}
+\end{equation}
+
+\begin{equation}
+    \label{eqn:V3}
+    V_3=M_3\cdot a_3
+\end{equation}
+
+The entropy increase across the combustor was calculated using Eq. (\ref{eqn:latercp}) as,
+
+\begin{equation}
+    \label{eqn:dels23}
+    \Delta s_{23}\equiv\left(s_3-s_2\right)=\left(s_{t3}-s_{t2}\right)=c_p\ln\frac{T_{t3}}{T_{t2}}-R\ln\frac{p_{t3}}{p_{t2}}
+\end{equation}
+
+Then the relative entropy was calculated as,
+
+\begin{equation}
+    \label{eqn:dels13}
+    \Delta s_{13}=(s_3-s_1)=\Delta s_{12}+\Delta s_{23}
 \end{equation}
 
 \subsection{State e: Internal Converging Nozzle Flow}
@@ -299,7 +384,7 @@ The entropy increase from the nozzle irreversiblities were calculated using,
     \Delta s_{3e}\equiv\left(s_e-s_3\right)=\left(s_{te}-s_{t3}\right)=c_p \ln\frac{T_{te}}{T_{t3}}-R\ln\frac{p_{te}}{p_{t3}}
 \end{equation}
 
-where $c_p$ was calculated using Eq. (\ref{eqn:latercp}) for the exit temperature $T_e$. This entropy increase was then used to calculate the entropy increase from state 1 with,
+where $c_p$ was calculated using Eq. (\ref{eqn:latercp}) for the exit temperature $T_e$. This entropy increase was then used to calculate the relative entropy with,
 
 \begin{equation}
     \label{eqn:dels1e}
@@ -373,7 +458,7 @@ Lastly, the entropy increase due to the irreversiblity in the external nozzle fl
     \Delta s_{e4}\equiv(s_4-s_e)=(s_{t4}-s_{te})=c_p \ln\frac{T_{t4}}{T_{te}}-R\ln\frac{p_{t4}}{p_{te}}
 \end{equation}
 
-where $c_p$ is calculated from Eq. (\ref{eqn:latercp}) and the entropy change from state 1 was calculated using,
+where $c_p$ is calculated from Eq. (\ref{eqn:latercp}) and the relative entropy was calculated using,
 
 \begin{equation}
     \label{eqn:dels14}
