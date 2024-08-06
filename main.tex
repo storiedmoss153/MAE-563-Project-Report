@@ -59,6 +59,8 @@ To analyze the ramjet, the analysis tool was broken down into 5 modules focusing
     \end{tabular}
 \end{table}
 
+Modules 1-5 calculate the properties listed in table \ref{tab:state_outputs} for each of the states shown in fig. \ref{fig:propsys}.
+
 \begin{table}[hbt!] % Table of State Outputs
     \caption{\label{tab:state_outputs} Parametric Analysis Tool State Outputs}
     \centering
@@ -74,10 +76,12 @@ To analyze the ramjet, the analysis tool was broken down into 5 modules focusing
         Speed of Sound& $a_j$& m/s\\
         Flow Velocity& $V_j$& m/s\\
         Entropy Change from Previous State& $\Delta s_{(j-1),j}$& $\frac{J}{kg\cdot K}$\\
-        Entropy Change from State 1& $\Delta s_{1,j}$& $\frac{J}{kg\cdot K}$\\
+        Relative Entropy& $\Delta s_{1,j}$& $\frac{J}{kg\cdot K}$\\
         \hline
     \end{tabular}
 \end{table}
+
+These state properties are then used to calculate the performance parameters listed in table \ref{tab:perf_outputs}.
 
 \begin{table}[hbt!] % Table of Performance Outputs
     \caption{\label{tab:perf_outputs} Parametric Analysis Tool Performance Outputs}
@@ -103,6 +107,8 @@ To analyze the ramjet, the analysis tool was broken down into 5 modules focusing
         \hline
     \end{tabular}
 \end{table}
+
+The analysis tool was then used by iterating the inputs to observe how the performance parameters of the ram/scramjet vary. After analyzing trends, the tool was then used to design two propulsion systems that optimize different performance parameters.
 
 
 \section{Theory}
