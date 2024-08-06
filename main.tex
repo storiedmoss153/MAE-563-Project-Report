@@ -112,7 +112,7 @@ The
 The
 
 \subsection{State 1: Free Stream}
-The properties of the free stream entering the propulsion system were modeled using the isentropic model of the atmosphere. This was split into two sections, properties for altitudes under 7958 meters and for properties above 7958 meters. For altitudes $z<7958$ m, Eq. \ref{eqn:T1_low} and Eq. \ref{eqn:p1_low} were used with $T_s=288$, $p_s=101.3$ kPa, $\gamma=1.4$, and $z^*=8404$ m to find the static temperature $T_1$ and static pressure $p_1$ of state 1.
+The properties of the free stream entering the propulsion system were modeled using the isentropic model of the atmosphere. This was split into two sections, properties for altitudes under 7958 meters and for properties above 7958 meters. For altitudes $z<7958$ m, Eq. (\ref{eqn:T1_low}) and Eq. (\ref{eqn:p1_low}) were used with $T_s=288$, $p_s=101.3$ kPa, $\gamma=1.4$, and $z^*=8404$ m to find the static temperature $T_1$ and static pressure $p_1$ of state 1.
 
 \begin{equation}
     \label{eqn:T1_low}
@@ -131,7 +131,7 @@ For altitudes $z>7958$ m, $T_1\equiv T(z)=$ constant = 210 K while the static pr
     p_1\equiv p(z)=33.6e^{-\left[\frac{z-7958}{6605}\right]}
 \end{equation}
 
-With the calculated $T_1$ and $p_1$ and the inputted flight Mach number $M_1$, the total temperature $T_t1$ and pressure $p_t1$ can be calculated from the total-to-static relations for temperature using Eq. \ref{eqn:Tt1} and pressure using Eq. \ref{eqn:pt1}.
+With the calculated $T_1$ and $p_1$ and the inputted flight Mach number $M_1$, the total temperature $T_t1$ and pressure $p_t1$ were calculated from the total-to-static relations for temperature using Eq. (\ref{eqn:Tt1}) and pressure using Eq. (\ref{eqn:pt1}).
 
 \begin{equation}
     \label{eqn:Tt1}
@@ -156,21 +156,21 @@ After calculating the total and static temperature and pressure of state 1, the 
 \end{equation}
 
 \subsection{State 2: Inlet/Diffuser}
-The inlet/diffuser of the ramjet engine does not do work on or take work out of the oncoming air. It also does not transfer any heat into or out of the air, so the total temperature at state two is,
+The inlet/diffuser of the ramjet engine does not do work on nor take work out of the oncoming air. It also does not transfer any heat into or out of the air, so the total temperature at state two is,
 
 \begin{equation}
     \label{eqn:Tt2}
     T_{t2}=T_{t1}
 \end{equation}
 
-Then with the total temperature calculated, the given combustor inlet Mach number $M_2$ can be used to calculate the static temperature using the total-to-static relation,
+Then with the total temperature calculated, the given combustor inlet Mach number $M_2$ was used to calculate the static temperature using the total-to-static relation,
 
 \begin{equation}
     \label{eqn:T2}
     \frac{T_{t2}}{T_2}=\left[1+\frac{\gamma-1}{2}M_2^2\right]
 \end{equation}
 
-The speed of sound and the flow speed entering the combustor can then be calculate from the computed state 2 static temperature using Eq. \ref{eqn:a2} and Eq. \ref{eqn:V2}, respectively.
+The speed of sound and the flow speed entering the combustor could then be calculated from the computed state 2 static temperature using Eq. (\ref{eqn:a2}) and Eq. (\ref{eqn:V2}), respectively.
 
 \begin{equation}
     \label{eqn:a2}
@@ -182,14 +182,14 @@ The speed of sound and the flow speed entering the combustor can then be calcula
     V_2=M_2\cdot a_2
 \end{equation}
 
-To obtain the total pressure at state 2, the free stream Mach number $M_1$ and the given inlet/diffuser isentropic efficiency $\eta_d$ can be used in the following equation.
+To obtain the total pressure at state 2, the free stream Mach number $M_1$ and the given inlet/diffuser isentropic efficiency $\eta_d$ were used in the following equation.
 
 \begin{equation}
     \label{eqn:pt2}
     \frac{p_{t2}}{p_1}=\left[1+\eta_d\frac{\gamma-1}{2}M_1^2\right]^{\frac{\gamma}{\gamma-1}}
 \end{equation}
 
-With the total pressure at state 2 calculated, the static pressure can be calculated from the total-to-static relation,
+With the total pressure at state 2 calculated, the static pressure was calculated from the total-to-static relation,
 
 \begin{equation}
     \label{eqn:p2}
@@ -226,7 +226,7 @@ For the internal flow in the conberging nozzle, seen in fig. \ref{fig:propsys}, 
     M'\equiv\left\{\frac{2}{\gamma-1}\cdot\frac{\eta_n\left[1-\left(p_1/p_{t3}\right)^{\frac{\gamma-1}{\gamma}}\right]}{1-\eta_n\left[1-\left(p_1/p_{t3}\right)^{\frac{\gamma-1}{\gamma}}\right]}\right\}^{1/2}
 \end{equation}
 
-From the test Mach number, the state of the nozzle can be determined. If $M'<1$ then the nozzle is not choked and the exit Mach and static pressure can be calculated as,
+From the test Mach number, the state of the nozzle could be determined. If $M'<1$ then the nozzle is not choked and the exit Mach and static pressure could be calculated as,
 
 \begin{equation}
     \label{eqn:nchokeMe}
@@ -240,7 +240,7 @@ and,
     p_e=p_1
 \end{equation}
 
-However, if $M'\geq1$ then the nozzle flow is choked and the exit Mach and static pressure can instead be calcualted as,
+However, if $M'\geq1$ then the nozzle flow is choked and the exit Mach and static pressure could instead be calcualted as,
 
 \begin{equation}
     \label{eqn:chokeMe}
@@ -299,7 +299,7 @@ The entropy increase from the nozzle irreversiblities were calculated using,
     \Delta s_{3e}\equiv\left(s_e-s_3\right)=\left(s_{te}-s_{t3}\right)=c_p \ln\frac{T_{te}}{T_{t3}}-R\ln\frac{p_{te}}{p_{t3}}
 \end{equation}
 
-where $c_p$ was calculated using Eq. \ref{eqn:latercp} for the exit temperature $T_e$. This entropy increase was then used to calculate the entropy increase from state 1 with,
+where $c_p$ was calculated using Eq. (\ref{eqn:latercp}) for the exit temperature $T_e$. This entropy increase was then used to calculate the entropy increase from state 1 with,
 
 \begin{equation}
     \label{eqn:dels1e}
@@ -314,7 +314,7 @@ The pressure of the ambient air was taken as,
     p_4=p_1
 \end{equation}
 
-Depending on the choked state of the converging only, the external nozzle flow efficiency can be calculated from the test Mach number that was calcualted using Eq. \ref{eqn:M'} as
+Depending on the choked state of the converging only, the external nozzle flow efficiency could be calculated from the test Mach number that was calcualted using Eq. (\ref{eqn:M'}) as
 
 \begin{equation}
     \label{eqn:eta_n_ext}
@@ -331,28 +331,28 @@ Again, from the \nth{1} Law, there is no work or heat transfer interactions with
     T_{t4}=T_{te}=T_{t3}
 \end{equation}
 
-Then using $\gamma=1.3$, the static temperature of the gas leaving the nozzle can be calculated using,
+Then using $\gamma=1.3$, the static temperature of the gas leaving the nozzle was calculated using,
 
 \begin{equation}
     \label{eqn:T4}
     \frac{T_4}{T_{te}}=1-\eta_{n,ext}\left[1-\left(p_1/p_{te}\right)^\frac{\gamma-1}{\gamma}\right]
 \end{equation}
 
-With the total and static temperature, the Mach number can be calculated for state 4 by rearranging the total-to-static relation for state 4 to,
+With the total and static temperature, the Mach number could be calculated for state 4 by rearranging the total-to-static relation for state 4 to,
 
 \begin{equation}
     \label{eqn:M4}
     M_4=\left\{\frac{2}{\gamma-1}\left[\frac{T_{t4}}{T_4}-1\right]\right\}^{1/2}
 \end{equation}
 
-Then with the Mach number, the total pressure of state 4 can be calculated from the total-to-static pressure relations,
+Then with the Mach number, the total pressure of state 4 was calculated from the total-to-static pressure relations,
 
 \begin{equation}
     \label{eqn:pt4}
     \frac{p_{t4}}{p_4}=\left[1+\frac{\gamma-1}{2}M_4^2\right]^\frac{\gamma}{\gamma-1}
 \end{equation}
 
-The speed of sound and flow velocity can be calculated as,
+The speed of sound and flow velocity were calculated as,
 
 \begin{equation}
     \label{eqn:a4}
@@ -373,7 +373,7 @@ Lastly, the entropy increase due to the irreversiblity in the external nozzle fl
     \Delta s_{e4}\equiv(s_4-s_e)=(s_{t4}-s_{te})=c_p \ln\frac{T_{t4}}{T_{te}}-R\ln\frac{p_{t4}}{p_{te}}
 \end{equation}
 
-where $c_p$ is calculated from Eq. \ref{eqn:latercp} and the entropy change from state 1 was calculated using,
+where $c_p$ is calculated from Eq. (\ref{eqn:latercp}) and the entropy change from state 1 was calculated using,
 
 \begin{equation}
     \label{eqn:dels14}
@@ -381,11 +381,84 @@ where $c_p$ is calculated from Eq. \ref{eqn:latercp} and the entropy change from
 \end{equation}
 
 \subsection{Ram/Scramjet Performance Parameters}
-The inlet mass flux can be calculated using $q_{23}$ calculated from Eq. \ref{eqn:q23} and the given $q_f$ using,
+The inlet mass flux was calculated using $q_{23}$ calculated from Eq. (\ref{eqn:q23}), $\dot{m}_e$ calculated from Eq. (\ref{eqn:mdote}), and the given $q_f$ using,
 
 \begin{equation}
     \label{eqn:mdoti}
     \left. \dot{m}_i=\dot{m}_e \middle/ \left(1+\frac{q_{23}}{q_f}\right) \right.
+\end{equation}
+
+which was then used to calculate the fuel mass flux from,
+
+\begin{equation}
+    \label{eqn:mdotf}
+    \dot{m}_f=\dot{m}_e-\dot{m}_i
+\end{equation}
+
+then used to compute the fuel-air mass ratio $f$ using (\ref{eqn:f}).
+
+\begin{equation}
+    \label{eqn:f}
+    \left. f\equiv\dot{m}_f\middle/\dot{m}_i \right.
+\end{equation}
+
+The jet, pressure, and total thrust $T$ were then calculated using $p_\infty\equiv p_1$ and $V_\infty\equiv V_1$ from Module 1, $p_e$ and $V_e$ calculated from Module 4, and the given nozzle exit area $A_e$ using,
+
+\begin{equation}
+    \label{eqn:Thrust}
+    T=
+    \underbrace{\dot{m}_i\left[\left(1+f\right)V_e-V_1\right]}_\text{Jet thrust}
+    +
+    \underbrace{\left(p_e-p_1\right)A_e}_\text{Pressure thrust}
+\end{equation}
+
+The thrust-specific fuel consumpiton was then calculated with,
+
+\begin{equation}
+    \label{eqn:TSFC}
+    TSFC=\frac{\dot{m}_f}{T}
+\end{equation}
+
+and converted to units of $(kg/hr)/N$. The specific impulse was then computed in units of seconds using $g=9.8$ m/s\textsuperscript{2} with,
+
+\begin{equation}
+    \label{eqn:Isp}
+    I_{sp}=\frac{T}{\dot{m}_f g}
+\end{equation}
+
+To then compute the thermal efficiency, the equivalent velocity $V_{eq}$ that would produce the same thrust $T$ if the nozzle exit flow were fully expanded was first calculated as,
+
+\begin{equation}
+    \label{eqn:Veq}
+    V_{eq}=V_e+\left(p_e-p_\infty\right)\frac{A_e}{\dot{m}_e}
+\end{equation}
+
+With $V_{eq}$ the thermal efficiency was calcualted with,
+
+\begin{equation}
+    \label{eqn:etath}
+    \eta_{th}=\frac{\left[\dot{m}_e\frac{1}{2}V_{eq}^2\right]-\left[\dot{m}_i\frac{1}{2}V_{1}^2\right]}{\dot{m}_i q_{23}}
+\end{equation}
+
+The propulsive efficiency $\eta_{p}$ was then calculated from the equivalent velocity as,
+
+\begin{equation}
+    \label{eqn:etap}
+    \left. \eta_p=\frac{2}{1+\left(V_{eq}\middle/V_1\right)} \right.
+\end{equation}
+
+and used to calculate the overall efficiency as,
+
+\begin{equation}
+    \label{eqn:etao}
+    \eta_o=\eta_{th}\cdot\eta_p
+\end{equation}
+
+Lastly, the propulsive power was calculated with,
+
+\begin{equation}
+    \label{eqn:P}
+    P=T\cdot V_\infty
 \end{equation}
 
 
