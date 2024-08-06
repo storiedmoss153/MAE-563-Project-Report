@@ -31,7 +31,7 @@ These instructions give you guidelines for preparing papers for AIAA Technical J
 
 
 \section{Introduction}
-\lettrine{T}{he} primary focus of this project was to develop an analysis tool for studies of non-ideal ramjet propulsion performance. This tool was developed using FORTRAN for the non-ideal ramjet propulsion system with a converging-only fixed-geometry nozzle in Fig. \ref{fig:propsys}.
+\lettrine{T}{he} primary focus of this project was to develop an analysis tool for studies of non-ideal ramjet propulsion performance. This tool was developed using FORTRAN for the non-ideal ramjet propulsion system with a converging-only fixed-geometry nozzle in Fig.~\ref{fig:propsys}.
 
 \begin{figure}[hbt!] % Diagram of ram/scramjet propulsion system with state labels
     \centering
@@ -39,7 +39,7 @@ These instructions give you guidelines for preparing papers for AIAA Technical J
     \caption{\label{fig:propsys} The Ramjet Propulsion System}
 \end{figure}
 
-To analyze the ramjet, the analysis tool was broken down into 5 modules focusing on an individual section of the flow path through the jet in Fig. \ref{fig:propsys} and one module for calculating performance parameters. These modules take the given parameters listen in table \ref{tab:tool_inputs} along with the gas constant of air $R$, the ratio of specific heats $\gamma$, the gravitational acceleration $g$, and the specific heat $c_p$.
+To analyze the ramjet, the analysis tool was broken down into 5 modules focusing on an individual section of the flow path through the jet in Fig.~\ref{fig:propsys} and one module for calculating performance parameters. These modules take the given parameters listen in Table~\ref{tab:tool_inputs} along with the gas constant of air $R$, the ratio of specific heats $\gamma$, the gravitational acceleration $g$, and the specific heat $c_p$.
 
 \begin{table}[hbt!] % Table of Tool Inputs
     \caption{\label{tab:tool_inputs} Parametric Analysis Tool Inputs}
@@ -59,7 +59,7 @@ To analyze the ramjet, the analysis tool was broken down into 5 modules focusing
     \end{tabular}
 \end{table}
 
-Modules 1-5 calculate the properties listed in table \ref{tab:state_outputs} for each of the states shown in fig. \ref{fig:propsys}.
+Modules 1-5 calculate the properties listed in Table~\ref{tab:state_outputs} for each of the states shown in Fig.~\ref{fig:propsys}.
 
 \begin{table}[hbt!] % Table of State Outputs
     \caption{\label{tab:state_outputs} Parametric Analysis Tool State Outputs}
@@ -81,7 +81,7 @@ Modules 1-5 calculate the properties listed in table \ref{tab:state_outputs} for
     \end{tabular}
 \end{table}
 
-These state properties are then used to calculate the performance parameters listed in table \ref{tab:perf_outputs}.
+These state properties are then used to calculate the performance parameters listed in Table~\ref{tab:perf_outputs}.
 
 \begin{table}[hbt!] % Table of Performance Outputs
     \caption{\label{tab:perf_outputs} Parametric Analysis Tool Performance Outputs}
@@ -118,7 +118,7 @@ The ram/scramjet is "basically one of the most simple types of aircraft engine" 
 \section{Calculations}
 
 \subsection{State 1: Free Stream}
-The properties of the free stream entering the propulsion system were modeled using the isentropic model of the atmosphere. This was split into two sections, properties for altitudes under 7958 meters and for properties above 7958 meters. For altitudes $z<7958$ m, Eq. (\ref{eqn:T1_low}) and Eq. (\ref{eqn:p1_low}) were used with $T_s=288$, $p_s=101.3$ kPa, $\gamma=1.4$, and $z^*=8404$ m to find the static temperature $T_1$ and static pressure $p_1$ of state 1.
+The properties of the free stream entering the propulsion system were modeled using the isentropic model of the atmosphere. This was split into two sections, properties for altitudes under 7958 meters and for properties above 7958 meters. For altitudes $z<7958$ m, Eq.~\eqref{eqn:T1_low} and Eq.~\eqref{eqn:p1_low} were used with $T_s=288$, $p_s=101.3$ kPa, $\gamma=1.4$, and $z^*=8404$ m to find the static temperature $T_1$ and static pressure $p_1$ of state 1.
 
 \begin{equation}
     \label{eqn:T1_low}
@@ -137,7 +137,7 @@ For altitudes $z>7958$ m, $T_1\equiv T(z)=$ constant = 210 K while the static pr
     p_1\equiv p(z)=33.6e^{-\left[\frac{z-7958}{6605}\right]}
 \end{equation}
 
-With the calculated $T_1$ and $p_1$ and the inputted flight Mach number $M_1$, the total temperature $T_t1$ and pressure $p_t1$ were calculated from the total-to-static relations for temperature using Eq. (\ref{eqn:Tt1}) and pressure using Eq. (\ref{eqn:pt1}).
+With the calculated $T_1$ and $p_1$ and the inputted flight Mach number $M_1$, the total temperature $T_t1$ and pressure $p_t1$ were calculated from the total-to-static relations for temperature using Eq.~\eqref{eqn:Tt1} and pressure using Eq.~\eqref{eqn:pt1}.
 
 \begin{equation}
     \label{eqn:Tt1}
@@ -176,7 +176,7 @@ Then with the total temperature calculated, the given combustor inlet Mach numbe
     \frac{T_{t2}}{T_2}=\left[1+\frac{\gamma-1}{2}M_2^2\right]
 \end{equation}
 
-The speed of sound and the flow speed entering the combustor could then be calculated from the computed state 2 static temperature using Eq. (\ref{eqn:a2}) and Eq. (\ref{eqn:V2}), respectively.
+The speed of sound and the flow speed entering the combustor could then be calculated from the computed state 2 static temperature using Eq.~\eqref{eqn:a2} and Eq.~\eqref{eqn:V2}, respectively.
 
 \begin{equation}
     \label{eqn:a2}
@@ -217,7 +217,7 @@ From this state onwards, $\gamma=1.3$ due to the addition of fuel into the air f
     \left(T_{t3}\right)_{choked}=T_{t2}\cdot\left\{\frac{1}{2(\gamma+1)}\cdot\frac{1}{M_2^2}\left(1+\gamma M_2^2\right)^2\left(1+\frac{\gamma-1}{2}M_2^2\right)^{-1}\right\}
 \end{equation}
 
-The calculated value of the choked total temperature was then compared against the given max temperature $\left(T_{t3}\right)_{max}=2400K$. If $\left(T_{t3}\right)_{choked}\leq\left(T_{t3}\right)_{max}$, then $M_3=1$ and $T_{t3}=\left(T_{t3}\right)_{choked}$. However, if $\left(T_{t3}\right)_{choked}>\left(T_{t3}\right)_{max}$, then $T_{t3}=\left(T_{t3}\right)_{max}$ and $M_3$ was calcualted by rearranging Eq. (\ref{eqn:Tt3/Tt2}) into a quadratic equation in terms of $\left(M_3^2\right)$.
+The calculated value of the choked total temperature was then compared against the given max temperature $\left(T_{t3}\right)_{max}=2400K$. If $\left(T_{t3}\right)_{choked}\leq\left(T_{t3}\right)_{max}$, then $M_3=1$ and $T_{t3}=\left(T_{t3}\right)_{choked}$. However, if $\left(T_{t3}\right)_{choked}>\left(T_{t3}\right)_{max}$, then $T_{t3}=\left(T_{t3}\right)_{max}$ and $M_3$ was calcualted by rearranging Eq.~\eqref{eqn:Tt3/Tt2} into a quadratic equation in terms of $\left(M_3^2\right)$.
 
 \begin{equation}
     \label{eqn:Tt3/Tt2}
@@ -231,7 +231,7 @@ First, the constant,
     C\equiv\frac{T_{t3}}{T_{t2}}\cdot\frac{\left(1+\frac{\gamma-1}{2}M_2^2\right)}{\left(1+\gamma M_2^2\right)^2}M_2^2=\frac{\left(1+\frac{\gamma-1}{2}M_3^2\right)}{\left(1+\gamma M_3^2\right)^2}M_3^2
 \end{equation}
 
-then Eq. (\ref{eqn:Tt3/Tt2}) was rearranged into the quadratic form of,
+then Eq.~\eqref{eqn:Tt3/Tt2} was rearranged into the quadratic form of,
 
 \begin{equation}
     \label{eqn:quad}
@@ -250,7 +250,7 @@ and the constants used to solve for $M_3$.
     \left(M_3^2\right)=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \end{equation}
 
-The only roots that were selected from the quadratic equation where those where $\left(M_3^2\right)>0$. Then if $M_2<1$ then $M_3>M_2$ and $M_3\leq1$, and if $M_2>1$ then $M_3<M_2$ and $M_3\geq1$. The heat per unit mass $q_{23}$ that was added in the combustor was calculated using Eq. (\ref{eqn:q23}).
+The only roots that were selected from the quadratic equation where those where $\left(M_3^2\right)>0$. Then if $M_2<1$ then $M_3>M_2$ and $M_3\leq1$, and if $M_2>1$ then $M_3<M_2$ and $M_3\geq1$. The heat per unit mass $q_{23}$ that was added in the combustor was calculated using Eq.~\eqref{eqn:q23}.
 
 \begin{equation}
     \label{eqn:q23}
@@ -264,7 +264,7 @@ The specific heat model,
     c_p (T)=a+bT
 \end{equation}
 
-was used for calculating the specific heat in Eq. (\ref{eqn:q23}) where $(a,b)=(986,0179)$. From the calculated Mach number, the static temperature $T_3$ and the total pressure $p_{t3}$ were calculated using their respective total-to-static relations.
+was used for calculating the specific heat in Eq.~\eqref{eqn:q23} where $(a,b)=(986,0179)$. From the calculated Mach number, the static temperature $T_3$ and the total pressure $p_{t3}$ were calculated using their respective total-to-static relations.
 
 \begin{equation}
     \label{eqn:T3}
@@ -295,7 +295,7 @@ Then the speed of sound and flow velocity were calculated.
     V_3=M_3\cdot a_3
 \end{equation}
 
-The entropy increase across the combustor was calculated using Eq. (\ref{eqn:latercp}) as,
+The entropy increase across the combustor was calculated using Eq.~\eqref{eqn:latercp} as,
 
 \begin{equation}
     \label{eqn:dels23}
@@ -310,7 +310,7 @@ Then the relative entropy was calculated as,
 \end{equation}
 
 \subsection{State e: Internal Converging Nozzle Flow}
-For the internal flow in the conberging nozzle, seen in fig. \ref{fig:propsys}, it was first necessary to see if the exit flow of the nozzle is choked. First, the test Mach number was calculated using,
+For the internal flow in the conberging nozzle, seen in Fig.~\ref{fig:propsys}, it was first necessary to see if the exit flow of the nozzle is choked. First, the test Mach number was calculated using,
 
 \begin{equation}
     \label{eqn:M'}
@@ -390,7 +390,7 @@ The entropy increase from the nozzle irreversiblities were calculated using,
     \Delta s_{3e}\equiv\left(s_e-s_3\right)=\left(s_{te}-s_{t3}\right)=c_p \ln\frac{T_{te}}{T_{t3}}-R\ln\frac{p_{te}}{p_{t3}}
 \end{equation}
 
-where $c_p$ was calculated using Eq. (\ref{eqn:latercp}) for the exit temperature $T_e$. This entropy increase was then used to calculate the relative entropy with,
+where $c_p$ was calculated using Eq.~\eqref{eqn:latercp} for the exit temperature $T_e$. This entropy increase was then used to calculate the relative entropy with,
 
 \begin{equation}
     \label{eqn:dels1e}
@@ -405,7 +405,7 @@ The pressure of the ambient air was taken as,
     p_4=p_1
 \end{equation}
 
-Depending on the choked state of the converging only, the external nozzle flow efficiency could be calculated from the test Mach number that was calcualted using Eq. (\ref{eqn:M'}) as
+Depending on the choked state of the converging only, the external nozzle flow efficiency could be calculated from the test Mach number that was calcualted using Eq.~\eqref{eqn:M'} as
 
 \begin{equation}
     \label{eqn:eta_n_ext}
@@ -464,7 +464,7 @@ Lastly, the entropy increase due to the irreversiblity in the external nozzle fl
     \Delta s_{e4}\equiv(s_4-s_e)=(s_{t4}-s_{te})=c_p \ln\frac{T_{t4}}{T_{te}}-R\ln\frac{p_{t4}}{p_{te}}
 \end{equation}
 
-where $c_p$ is calculated from Eq. (\ref{eqn:latercp}) and the relative entropy was calculated using,
+where $c_p$ is calculated from Eq.~\eqref{eqn:latercp} and the relative entropy was calculated using,
 
 \begin{equation}
     \label{eqn:dels14}
@@ -472,7 +472,7 @@ where $c_p$ is calculated from Eq. (\ref{eqn:latercp}) and the relative entropy 
 \end{equation}
 
 \subsection{Ram/Scramjet Performance Parameters}
-The inlet mass flux was calculated using $q_{23}$ calculated from Eq. (\ref{eqn:q23}), $\dot{m}_e$ calculated from Eq. (\ref{eqn:mdote}), and the given $q_f$ using,
+The inlet mass flux was calculated using $q_{23}$ calculated from Eq.~\eqref{eqn:q23}, $\dot{m}_e$ calculated from Eq.~\eqref{eqn:mdote}, and the given $q_f$ using,
 
 \begin{equation}
     \label{eqn:mdoti}
@@ -486,7 +486,7 @@ which was then used to calculate the fuel mass flux from,
     \dot{m}_f=\dot{m}_e-\dot{m}_i
 \end{equation}
 
-then used to compute the fuel-air mass ratio $f$ using (\ref{eqn:f}).
+then used to compute the fuel-air mass ratio $f$ using Eq.~\eqref{eqn:f}.
 
 \begin{equation}
     \label{eqn:f}
