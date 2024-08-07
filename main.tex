@@ -118,7 +118,7 @@ The ram/scramjet is "basically one of the most simple types of aircraft engine,"
 \section{Calculations}
 
 \subsection{State 1: Free Stream}
-The properties of the free stream entering the propulsion system were modeled using the isentropic model of the atmosphere. This was split into two sections, properties for altitudes under 7958 meters and for properties above 7958 meters. For altitudes $z<7958$ m, Eq.~\eqref{eqn:T1_low} and Eq.~\eqref{eqn:p1_low} were used with $T_s=288$, $p_s=101.3$ kPa, $\gamma=1.4$, and $z^*=8404$ m to find the static temperature $T_1$ and static pressure $p_1$ of state 1.
+The properties of the free stream entering the propulsion system were modeled using the isentropic model of the atmosphere. This was split into two sections, properties for altitudes under 7958 meters and for properties above 7958 meters. For altitudes $z<7958$ m, Eq.~\eqref{eqn:T1_low} and Eq.~\eqref{eqn:p1_low} were used with $T_s=288$ K, $p_s=101.3$ kPa, $\gamma=1.4$, and $z^*=8404$ m to find the static temperature $T_1$ and static pressure $p_1$ of state 1. $\gamma$ was taken as 1.4.
 
 \begin{equation}
     \label{eqn:T1_low}
@@ -137,7 +137,7 @@ For altitudes $z>7958$ m, $T_1\equiv T(z)=$ constant = 210 K while the static pr
     p_1\equiv p(z)=33.6e^{-\left[\frac{z-7958}{6605}\right]}
 \end{equation}
 
-With the calculated $T_1$ and $p_1$ and the inputted flight Mach number $M_1$, the total temperature $T_t1$ and pressure $p_t1$ were calculated from the total-to-static relations for temperature using Eq.~\eqref{eqn:Tt1} and pressure using Eq.~\eqref{eqn:pt1}.
+With the calculated $T_1$ and $p_1$ and the inputted flight Mach number $M_1$, the total temperature $T_{t1}$ and pressure $p_{t1}$ were calculated from the total-to-static relations for temperature using Eq.~\eqref{eqn:Tt1} and pressure using Eq.~\eqref{eqn:pt1}.
 
 \begin{equation}
     \label{eqn:Tt1}
@@ -149,7 +149,7 @@ With the calculated $T_1$ and $p_1$ and the inputted flight Mach number $M_1$, t
     \frac{p_{t1}}{p_1}=\left[1+\frac{\gamma-1}{2}M_1^2\right]^\frac{\gamma}{\gamma-1}
 \end{equation}
 
-After calculating the total and static temperature and pressure of state 1, the speed of sound $a_1$ and flight speed $V_1$ were calculated.
+After calculating the total and static temperature and pressure of state 1, the speed of sound $a_1$ and flight speed $V_1$ were calculated. $R$ was taken as 286.9 J/(kg-K).
 
 \begin{equation}
     \label{eqn:a1}
@@ -207,6 +207,13 @@ With the total temperature and pressure calculated, the entropy increase from th
 \begin{equation}
     \label{eqn:dels12}
     \Delta s_{12}\equiv \left(s_2-s_1\right)=\left(s_{t2}-s_{t1}\right)=c_p \ln\frac{T_{t2}}{T_{t1}}-R\ln\frac{p_{t2}}{p_{t1}}
+\end{equation}
+
+where $c_p$ was calculated using,
+
+\begin{equation}
+    \label{eqn:cp}
+    c_p=\frac{\gamma R}{\gamma-1}
 \end{equation}
 
 \subsection{State 3: Combustor}
