@@ -112,7 +112,9 @@ The analysis tool was then used by iterating the inputs to observe how the perfo
 
 
 \section{Theory}
-The ram/scramjet is "basically one of the most simple types of aircraft engine," consisting of an inlet diffuser, a combustion system, and an exit nozzle. The system primarily produces thrust through ram action requiring the engine to be moving to create thrust, so zero thrust is produced at zero flight speed. Aircraft utilizing ram/scramjet propulsion systems will also need another method of propulsion to boost the speed of the aircraft close to Mach 1 before the ramjet system produces a useable amount of thrust \cite{nasa1956ramjetperformance}.
+The ram/scramjet is "basically one of the most simple types of aircraft engine," consisting of an inlet/diffuser, a combustion system, and an exit nozzle. The system primarily produces thrust through ram action requiring the engine to be moving to create thrust, so zero thrust is produced at zero flight speed. Aircraft utilizing ram/scramjet propulsion systems will also need another method of propulsion to boost the speed of the aircraft close to Mach 1 before the ramjet system produces a usable amount of thrust \cite{nasa1956ramjetperformance}.
+
+Ram/scramjets operate on the Brayton cycle. The engine takes the oncoming air and compresses it through ram compression through the inlet/diffuser. The pressure increase from the oncoming air is dependent on the isentropic efficiency of the diffuser. Fuel is then added to the compressed air before it is sent through the combustor. The combustor adds heat into the fuel-air mixture to increase the temperature of the mixture to the thermal limits of the engine materials. When adding heat to the fuel-air mixture, if the combustor is thermally choked then there may not be enough heat that can be added to reach the material temperature limits. Any heat added to the thermally choked combustor through the addition of more fuel will be a waste of fuel. The flow from the compressor then expanded through the nozzle. The flow then exits the nozzle and either expands or compresses to ambient pressure before cooling to ambient temperatures.
 
 
 \section{Calculations}
@@ -202,7 +204,7 @@ With the total pressure at state 2 calculated, the static pressure was calculate
     \frac{p_{t2}}{p_2}=\left[1+\frac{\gamma-1}{2}M_2^2\right]^{\frac{\gamma}{\gamma-1}}
 \end{equation}
 
-With the total temperature and pressure calculated, the entropy increase from the sources of irreversibility in the inlet/diffuser flow was calcualted using the Second Law as,
+With the total temperature and pressure calculated, the entropy increase from the sources of irreversibility in the inlet/diffuser flow was calculated using the Second Law as,
 
 \begin{equation}
     \label{eqn:dels12}
@@ -224,7 +226,7 @@ From this state onwards, $\gamma=1.3$ due to the addition of fuel into the air f
     \left(T_{t3}\right)_{choked}=T_{t2}\cdot\left\{\frac{1}{2(\gamma+1)}\cdot\frac{1}{M_2^2}\left(1+\gamma M_2^2\right)^2\left(1+\frac{\gamma-1}{2}M_2^2\right)^{-1}\right\}
 \end{equation}
 
-The calculated value of the choked total temperature was then compared against the given max temperature $\left(T_{t3}\right)_{max}=2400K$. If $\left(T_{t3}\right)_{choked}\leq\left(T_{t3}\right)_{max}$, then $M_3=1$ and $T_{t3}=\left(T_{t3}\right)_{choked}$. However, if $\left(T_{t3}\right)_{choked}>\left(T_{t3}\right)_{max}$, then $T_{t3}=\left(T_{t3}\right)_{max}$ and $M_3$ was calcualted by rearranging Eq.~\eqref{eqn:Tt3/Tt2} into a quadratic equation in terms of $\left(M_3^2\right)$.
+The calculated value of the choked total temperature was then compared against the given max temperature $\left(T_{t3}\right)_{max}=2400K$. If $\left(T_{t3}\right)_{choked}\leq\left(T_{t3}\right)_{max}$, then $M_3=1$ and $T_{t3}=\left(T_{t3}\right)_{choked}$. However, if $\left(T_{t3}\right)_{choked}>\left(T_{t3}\right)_{max}$, then $T_{t3}=\left(T_{t3}\right)_{max}$ and $M_3$ was calculated by rearranging Eq.~\eqref{eqn:Tt3/Tt2} into a quadratic equation in terms of $\left(M_3^2\right)$.
 
 \begin{equation}
     \label{eqn:Tt3/Tt2}
@@ -317,7 +319,7 @@ Then the relative entropy was calculated as,
 \end{equation}
 
 \subsection{State e: Internal Converging Nozzle Flow}
-For the internal flow in the conberging nozzle, seen in Fig.~\ref{fig:propsys}, it was first necessary to see if the exit flow of the nozzle is choked. First, the test Mach number was calculated using,
+For the internal flow in the converging nozzle, seen in Fig.~\ref{fig:propsys}, it was first necessary to see if the exit flow of the nozzle is choked. First, the test Mach number was calculated using,
 
 \begin{equation}
     \label{eqn:M'}
@@ -338,7 +340,7 @@ and,
     p_e=p_1
 \end{equation}
 
-However, if $M'\geq1$ then the nozzle flow is choked and the exit Mach and static pressure could instead be calcualted as,
+However, if $M'\geq1$ then the nozzle flow is choked and the exit Mach and static pressure could instead be calculated as,
 
 \begin{equation}
     \label{eqn:chokeMe}
@@ -390,7 +392,7 @@ The exit mass flux of the nozzle was calculated using,
     \dot{m}_e=\rho_e V_e A_e=\frac{p_e}{R T_e}V_e A_e
 \end{equation}
 
-The entropy increase from the nozzle irreversiblities were calculated using,
+The entropy increase from the nozzle irreversibilities were calculated using,
 
 \begin{equation}
     \label{eqn:dels3e}
@@ -412,7 +414,7 @@ The pressure of the ambient air was taken as,
     p_4=p_1
 \end{equation}
 
-Depending on the choked state of the converging only, the external nozzle flow efficiency could be calculated from the test Mach number that was calcualted using Eq.~\eqref{eqn:M'} as
+Depending on the choked state of the converging only, the external nozzle flow efficiency could be calculated from the test Mach number that was calculated using Eq.~\eqref{eqn:M'} as
 
 \begin{equation}
     \label{eqn:eta_n_ext}
@@ -464,7 +466,7 @@ and,
     V_4=M_4\cdot a_4
 \end{equation}
 
-Lastly, the entropy increase due to the irreversiblity in the external nozzle flow was calculated as,
+Lastly, the entropy increase due to the irreversibility in the external nozzle flow was calculated as,
 
 \begin{equation}
     \label{eqn:delse4}
@@ -510,7 +512,7 @@ The jet, pressure, and total thrust $T$ were then calculated using $p_\infty\equ
     \underbrace{\left(p_e-p_1\right)A_e}_\text{Pressure thrust}
 \end{equation}
 
-The thrust-specific fuel consumpiton was then calculated with,
+The thrust-specific fuel consumption was then calculated with,
 
 \begin{equation}
     \label{eqn:TSFC}
@@ -531,7 +533,7 @@ To then compute the thermal efficiency, the equivalent velocity $V_{eq}$ that wo
     V_{eq}=V_e+\left(p_e-p_\infty\right)\frac{A_e}{\dot{m}_e}
 \end{equation}
 
-With $V_{eq}$ the thermal efficiency was calcualted with,
+With $V_{eq}$ the thermal efficiency was calculated with,
 
 \begin{equation}
     \label{eqn:etath}
@@ -603,7 +605,7 @@ The
 \subsubsection{Overall Efficiency}
 The
 
-\begin{figure}[hbt!] % Part C: overall efficiency for varied flight mach
+\begin{figure}[hbt!] % Part C: overall efficiency for varied flight Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_c_eta_o.pdf}
     \caption{\label{fig:partcetao}Overall Efficiency vs Flight Mach Number}
@@ -613,7 +615,7 @@ The
 \subsubsection{Total Thrust}
 The
 
-\begin{figure}[hbt!] % Part C: total thrust for varied flight mach
+\begin{figure}[hbt!] % Part C: total thrust for varied flight Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_c_T.pdf}
     \caption{\label{fig:partct}Total Thrust vs Flight Mach Number}
@@ -623,7 +625,7 @@ The
 \subsubsection{Thrust Specific Fuel Consumption}
 The
 
-\begin{figure}[hbt!] % Part C: TSFC for varied flight mach
+\begin{figure}[hbt!] % Part C: TSFC for varied flight Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_c_TSFC.pdf}
     \caption{\label{fig:partctsfc}TSFC vs Flight Mach Number}
@@ -750,7 +752,7 @@ The
 \subsubsection{Overall Efficiency}
 The
 
-\begin{figure}[hbt!] % Part H: overall efficiency for varied combustor mach
+\begin{figure}[hbt!] % Part H: overall efficiency for varied combustor Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_eta_o.pdf}
     \caption{\label{fig:parthetao}Overall Efficiency vs \texorpdfstring{\textit{$M_2$}}{M2}}
@@ -760,7 +762,7 @@ The
 \subsubsection{Total Thrust}
 The
 
-\begin{figure}[hbt!] % Part H: total thrust for varied combustor mach
+\begin{figure}[hbt!] % Part H: total thrust for varied combustor Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_T.pdf}
     \caption{\label{fig:partht}Total Thrust vs \texorpdfstring{\textit{$M_2$}}{M2}}
@@ -770,14 +772,14 @@ The
 \subsubsection{Thrust Specific Fuel Consumption}
 The
 
-\begin{figure}[hbt!] % Part H: TSFC for varied combustor mach
+\begin{figure}[hbt!] % Part H: TSFC for varied combustor Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_TSFC.pdf}
     \caption{\label{fig:parthtsfc}TSFC vs \texorpdfstring{\textit{$M_2$}}{M2}}
 \end{figure}
 The
 
-\subsection{Part I: Optimzed Ram/Scramjet Propulsion System}
+\subsection{Part I: Optimized Ram/Scramjet Propulsion System}
 The
 
 \begin{figure}[hbt!] % Part I: propulsion design optimize total thrust
