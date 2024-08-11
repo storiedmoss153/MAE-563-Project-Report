@@ -71,12 +71,12 @@ Modules 1-5 calculate the properties listed in Table~\ref{tab:state_outputs} for
         Static Temperature& $T_{j}$& K\\
         Total Pressure& $p_{tj}$& kPa\\
         Static Pressure& $p_j$& kPa\\
-        Pressure Coefficient& $c_{pj}$& $\frac{J}{kg\cdot K}$\\
+        Pressure Coefficient& $c_{pj}$& J/(kg-K)\\
         Flow Mach number& $M_j$\\
         Speed of Sound& $a_j$& m/s\\
         Flow Velocity& $V_j$& m/s\\
-        Entropy Change from Previous State& $\Delta s_{(j-1),j}$& $\frac{J}{kg\cdot K}$\\
-        Relative Entropy& $\Delta s_{1,j}$& $\frac{J}{kg\cdot K}$\\
+        Entropy Change from Previous State& $\Delta s_{(j-1),j}$& J/(kg-K)\\
+        Relative Entropy& $\Delta s_{1,j}$& J/(kg-K)\\
         \hline
     \end{tabular}
 \end{table}
@@ -98,7 +98,7 @@ These state properties are then used to calculate the performance parameters lis
         Pressure Thrust& $T_{pressure}$& N\\
         Total Thrust& $T_{total}$& N\\
         Equivalent Velocity& $V_{eq}$& m/s\\
-        Thrust Specific Fuel Consumption& $TSFC$& $\frac{kg/hr}{N}$\\
+        Thrust Specific Fuel Consumption& $TSFC$& (kg/hr)/N\\
         Specific Impulse& $I_{sp}$& s\\
         Thermal Efficiency& $\eta_{th}$\\
         Propulsive Efficiency& $\eta_p$\\
@@ -114,11 +114,12 @@ The analysis tool was then used by iterating the inputs to observe how the perfo
 \section{Theory}
 The ram/scramjet is "basically one of the most simple types of aircraft engine," consisting of an inlet/diffuser, a combustion system, and an exit nozzle. The system primarily produces thrust through ram action requiring the engine to be moving to create thrust, so zero thrust is produced at zero flight speed. Aircraft utilizing ram/scramjet propulsion systems will also need another method of propulsion to boost the speed of the aircraft close to Mach 1 before the ramjet system produces a usable amount of thrust \cite{nasa1956ramjetperformance}.
 
-Ram/scramjets operate on the Brayton cycle. The engine takes the oncoming air and compresses it through ram compression through the inlet/diffuser. The pressure increase from the oncoming air is dependent on the isentropic efficiency of the diffuser. Fuel is then added to the compressed air before it is sent through the combustor. The combustor adds heat into the fuel-air mixture to increase the temperature of the mixture to the thermal limits of the engine materials. When adding heat to the fuel-air mixture, if the combustor is thermally choked then there may not be enough heat that can be added to reach the material temperature limits. Any heat added to the thermally choked combustor through the addition of more fuel will be a waste of fuel. The flow from the compressor then expanded through the nozzle. The flow then exits the nozzle and either expands or compresses to ambient pressure before cooling to ambient temperatures.
+Ram/scramjets operate on the Brayton cycle. The engine takes the oncoming air and compresses it through ram compression through the inlet/diffuser. The air loses kinetic energy and increases its pressure energy as it passes though the diverging duct \cite{rycey1996jetengine}. This pressure increase from the oncoming air is dependent on the isentropic efficiency of the diffuser. Fuel is then added to the compressed air before being sent through the combustor.
+
+The combustor adds heat to the fuel-air mixture through combustion to increase the temperature of the mixture to the thermal limits of the engine materials. When adding heat to the fuel-air mixture, if the combustor is thermally choked then there may not be enough heat that can be added to reach the material temperature limits. Any heat added to the thermally choked combustor through the addition of more fuel will be a waste of fuel. The flow from the compressor then expanded through the nozzle before exiting the nozzle and either expanding or compressing to ambient pressure. The gas then cools to ambient temperatures.
 
 
 \section{Calculations}
-
 \subsection{State 1: Free Stream}
 The properties of the free stream entering the propulsion system were modeled using the isentropic model of the atmosphere. This was split into two sections, properties for altitudes under 7958 meters and for properties above 7958 meters. For altitudes $z<7958$ m, Eq.~\eqref{eqn:T1_low} and Eq.~\eqref{eqn:p1_low} were used with $T_s=288$ K, $p_s=101.3$ kPa, $\gamma=1.4$, and $z^*=8404$ m to find the static temperature $T_1$ and static pressure $p_1$ of state 1. $\gamma$ was taken as 1.4.
 
@@ -563,7 +564,6 @@ Lastly, the propulsive power was calculated with,
 
 
 \section{Results}
-
 \subsection{Part A: \textit{T-s} Diagrams for Validation Cases}
 The
 
@@ -801,28 +801,114 @@ Although a conclusion may review the main points of the paper, it must not repli
 
 
 \section*{Appendix}
-\subsection{Universal Module Code}
+\subsection{Tabulated Data}
+\begin{table}[hbt!] % Table of Validation Case Inputs
+    \caption{\label{tab:val_case_input} Validation Case Inputs}
+    \centering
+    \begin{tabular}{lcccc}
+        \hline
+        Name& Variable& Case 1& Case 2& Units\\\hline
+        Flight Altitude& $z$& 4300& 4300& m\\
+        Flight Mach Number& $M_1$& 2.4& 2.4\\
+        Inlet/Diffuser Efficiency& $\eta_d$& 0.92& 0.92\\
+        Diffuser Exit Mach Number& $M_2$& 0.15& 0.4\\
+        Combustor Exit Max Allowable Total Temperature& $(T_{t3})_{max}$& 2400& 2400& K\\
+        Chosen Fuel Heating Value& $q_f$& 43.2& 43.2& MJ/kg\\
+        Nozzle Efficiency& $\eta_n$& 0.94& 0.94\\
+        Nozzle Exit Area& $A_e$& 0.015& 0.015& $m^2$\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{longtable}[c]{lcccc} % Table of Validation Case Ouputs
+    \caption{\label{tab:val_case_output} Validation Case Outputs}\\
+    \hline
+    Module& Variable/Property& Case 1& Case 2& Units\\\hline
+    \endfirsthead
+    Module 1& $T_1$& 245.9& 245.9& K\\
+    & $p_1$& 58.3& 58.3& kPa\\
+    & $T_{t1}$& 529.2& 529.2& K\\
+    & $p_{t1}$& 851.8& 851.8& kPa\\
+    & $c_{p1}$& 1004& 1004& J/(kg-K)\\
+    & $a_1$& 314.3& 314.3& m/s\\
+    & $V_1$& 754.3& 754.3& m/s\\\hline
+    Module 2& $T_{t2}$& 529.2& 529.2& K\\
+    & $T_2$& 526.8& 512.8& K\\
+    & $p_{t2}$& 730.8& 730.8& kPa\\
+    & $p_2$& 719.4& 654.5& kPa\\
+    & $c_{p2}$& 1004& 1004& J/(kg-K)\\
+    & $a_2$& 460.0& 453.8& m/s\\
+    & $V_2$& 69.0& 181.5& m/s\\
+    & $\Delta s_{12}$& 43.95& 43.95& J/(kg-K)\\\hline
+    Module 3& $T_{t3}$& 2400& 1025& K\\
+    & $M_3$& 0.3597& 1.000\\
+    & $q_{23}$& 2.34& 0.557& MJ/kg\\
+    & $T_3$& 2354& 891& K\\
+    & $p_3$& 719.4& 654.5& kPa\\
+    & $p_{t3}$& 781.9& 1.200E3& kPa\\
+    & $c_{p3}$& 1407& 1146& J/(kg-K)\\
+    & $\Delta s_{23}$& 2109& 615& J/(kg-K)\\
+    & $\Delta s_{13}$& 2152& 659& J/(kg-K)\\\hline
+    Module 4& $M_e$& 1.00& 1.00\\
+    & $p_{te}$& 750.0& 1.15E3& kPa\\
+    & $p_e$& 409.3& 627.8& kPa\\
+    & $T_{te}$& 2400& 1025& K\\
+    & $T_e$& 2087& 891& K\\
+    & $c_{pe}$& 1360& 1146& J/(kg-K)\\
+    & $a_e$& 882& 576& m/s\\
+    & $V_e$& 882& 576& m/s\\
+    & $m_e$& 9.0& 21.2& kg/s\\
+    & $\Delta s_{3e}$& 12.0& 12.0& J/(kg-K)\\
+    & $\Delta s_{1e}$& 2164& 671& J/(kg-K)\\\hline
+    Module 5& $M_4$& 1.90& 2.02\\
+    & $p_{t4}$& 379.2& 464.5& kPa\\
+    & $p_4$& 58.3& 58.3& kPa\\
+    & $T_{t4}$& 2400& 1025& K\\
+    & $T_4$& 1558& 635& K\\
+    & $c_{p4}$& 1265& 1100& J/(kg-K)\\
+    & $a_4$& 762& 486& m/s\\
+    & $V_4$& 1447& 985& m/s\\
+    & $\Delta s_{e4}$& 195.6& 260& J/(kg-K)\\
+    & $\Delta s_{14}$& 2630& 931& J/(kg-K)\\\hline
+    Module 6& $m_f$& 0.46& 0.27& kg/s\\
+    & $m_i$& 8.6& 21.0& kg/s\\
+    & $f$& 0.054& 0.013\\
+    & Jet Thrust& 1508& -3572& N\\
+    & Pressure Thrust& 5265& 8543& N\\
+    & Total Thrust& 6773& 4971& N\\
+    & $V_{eq}$& 1464& 979& m/s\\
+    & TSFC& 0.247& 0.196& (kg/hr)/N\\
+    & $I_sp$& 1490& 1875& s\\
+    & $\eta_{th}$& 0.362& 0.360\\
+    & $\eta_p$& 0.680& 0.870\\
+    & $\eta_o$& 0.246& 0.312\\
+    & $P$& 5.11& 3.75& MW\\
+    \hline
+\end{longtable}
+
+\subsection{FORTRAN Modules}
+\subsubsection{Universal Module Code}
 \lstinputlisting[language=FORTRAN,basicstyle=\ttfamily\small]{modules/universal_module.f90}
 
-\subsection{Module 1 Code}
+\subsubsection{Module 1 Code}
 \lstinputlisting[language=FORTRAN,basicstyle=\ttfamily\small]{modules/module_1.f90}
 
-\subsection{Module 2 Code}
+\subsubsection{Module 2 Code}
 \lstinputlisting[language=FORTRAN,basicstyle=\ttfamily\small]{modules/module_2.f90}
 
-\subsection{Module 3 Code}
+\subsubsection{Module 3 Code}
 \lstinputlisting[language=FORTRAN,basicstyle=\ttfamily\small]{modules/module_3.f90}
 
-\subsection{Module 4 Code}
+\subsubsection{Module 4 Code}
 \lstinputlisting[language=FORTRAN,basicstyle=\ttfamily\small]{modules/module_4.f90}
 
-\subsection{Module 5 Code}
+\subsubsection{Module 5 Code}
 \lstinputlisting[language=FORTRAN,basicstyle=\ttfamily\small]{modules/module_5.f90}
 
-\subsection{Module 6 Code}
+\subsubsection{Module 6 Code}
 \lstinputlisting[language=FORTRAN,basicstyle=\ttfamily\small]{modules/module_6.f90}
 
-\subsection{Auxiliary Module Code}
+\subsubsection{Auxiliary Module Code}
 \lstinputlisting[language=FORTRAN,basicstyle=\ttfamily\small]{modules/auxiliary_module.f90}
 
 
