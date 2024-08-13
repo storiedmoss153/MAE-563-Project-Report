@@ -107,15 +107,15 @@ These state properties are then used to calculate the performance parameters lis
     \end{tabular}
 \end{table}
 
-The analysis tool was then used by iterating the inputs to observe how the performance parameters of the ram/scramjet vary. After analyzing trends, the tool was then used to design two propulsion systems that optimize different performance parameters.
+The analysis tool was then used by iterating the inputs to observe how the performance parameters of the ram/scramjet vary. After analyzing trends, the tool was used to design two propulsion systems that optimize different performance parameters.
 
 
 \section{Theory} \label{sec:theory}
 The ram/scramjet is "basically one of the most simple types of aircraft engine," consisting of an inlet/diffuser, a combustion system, and an exit nozzle. The system primarily produces thrust through ram action requiring the engine to be moving to create thrust, so zero thrust is produced at zero flight speed. Aircraft utilizing ram/scramjet propulsion systems will also need another method of propulsion to boost the speed of the aircraft close to Mach 1 before the ramjet system produces a usable amount of thrust \cite{nasa1956ramjetperformance}.
 
-Ram/scramjets operate on the Brayton cycle. The engine takes the oncoming air and compresses it through ram compression through the inlet/diffuser. The air loses kinetic energy and increases its pressure energy as it passes though the diverging duct \cite{rycey1996jetengine}. This pressure increase from the oncoming air is dependent on the isentropic efficiency of the diffuser. Fuel is then added to the compressed air before being sent through the combustor.
+Ram/scramjets operate on the Brayton cycle. The engine takes the oncoming air and compresses it through ram compression through the inlet/diffuser. The air loses kinetic energy and increases its pressure energy as it passes through the diverging duct \cite{rycey1996jetengine}. This pressure increase from the oncoming air is dependent on the isentropic efficiency of the diffuser. Fuel is then added to the compressed air before being sent through the combustor.
 
-The combustor adds heat to the fuel-air mixture through combustion to increase the temperature of the mixture to the thermal limits of the engine materials. When adding heat to the fuel-air mixture, if the combustor is thermally choked then there may not be enough heat that can be added to reach the material temperature limits. Any heat added to the thermally choked combustor through the addition of more fuel will be a waste of fuel. The flow from the compressor then expanded through the nozzle before exiting the nozzle and either expands or compresses to ambient pressure. The gas then cools to ambient temperatures.
+The combustor adds heat to the fuel-air mixture through combustion to increase the temperature of the mixture to the thermal limits of the engine materials. When adding heat to the fuel-air mixture, if the combustor is thermally choked then there may not be enough heat that can be added to reach the material temperature limits. Any heat added to the thermally choked combustor through the addition of more fuel will be a waste of fuel. The flow from the compressor then expands through the nozzle before exiting the nozzle and either expands or compresses to ambient pressure. The gas then cools to ambient temperatures.
 
 
 \section{Tool Calculations} \label{sec:tool_calculations}
@@ -219,7 +219,7 @@ where $c_p$ was calculated using,
 \end{equation}
 
 \subsection{State 3: Combustor}
-From this state onwards, $\gamma=1.3$ due to the addition of fuel into the air flow. To determine the Mach number $M_3$ and the total temperature $T_{t3}$, it was first required to determine if the combustor was thermally choked. The choked total temperature $\left(T_{t3}\right)_{choked}$ was calculated by setting $M_3=1$ and using,
+From this state onwards, $\gamma=1.3$ due to the addition of fuel into the airflow. To determine the Mach number $M_3$ and the total temperature $T_{t3}$, it was first required to determine if the combustor was thermally choked. The choked total temperature $\left(T_{t3}\right)_{choked}$ was calculated by setting $M_3=1$ and using,
 
 \begin{equation}
     \label{eqn:Tt3choked}
@@ -392,7 +392,7 @@ The exit mass flux of the nozzle was calculated using,
     \dot{m}_e=\rho_e V_e A_e=\frac{p_e}{R T_e}V_e A_e
 \end{equation}
 
-The entropy increase from the nozzle irreversibilities were calculated using,
+The entropy increase from the nozzle irreversibilities was calculated using,
 
 \begin{equation}
     \label{eqn:dels3e}
@@ -563,7 +563,7 @@ Lastly, the propulsive power was calculated with,
 
 
 \section{Ram/Scramjet Analysis Procedures} \label{sec:ram_scramjet_analysis_procedures}
-The analysis tool created from the calculations in section \ref{sec:tool_calculations} was validated using two test cases: Case A for the non-thermally choked test case and Case B for the thermally choked test case. The inputs of each case for the analysis tool are listed in Table \ref{tab:val_case_input}. Between the two cases it can be seen that the only difference between is the value of $M_2$, the Mach entering the combustion chamber. The outputs of the analysis tool were compared to the expected case outputs listed in Table \ref{tab:val_case_output}. With the analysis tool validated, the inputs to the tool were modified and iterated to analyze ram/scramjet performance. The performance analysis was broken down into nine sections with plots provided to visualize the parameter's variability.
+The analysis tool created from the calculations in section \ref{sec:tool_calculations} was validated using two test cases: Case A for the non-thermally choked test case and Case B for the thermally choked test case. The inputs of each case for the analysis tool are listed in Table \ref{tab:val_case_input}. Between the two cases, it can be seen that the only difference between them is the value of $M_2$, the Mach entering the combustion chamber. The outputs of the analysis tool were compared to the expected case outputs listed in Table \ref{tab:val_case_output}. With the analysis tool validated, the inputs to the tool were modified and iterated to analyze ram/scramjet performance. The performance analysis was broken down into nine sections with plots provided to visualize the parameter's variability.
 
 \subsection{\textit{T-s} Diagrams for Validation Cases} % Part A
 Using the validation inputs for Case A and B, \textit{T-s} diagrams were created for each case using the computed static temperature and entropy change values. For the interconnecting lines between each state, straight lines were used between states 1 and 2, 3 and e, and e and 4. Constant pressure curves were used between states 2 and 3 and states 4 and 1. The constant pressure curve for 2-3 was defined as,
@@ -589,7 +589,7 @@ The isentropic atmosphere model used in module 1 for calculating the static temp
 The flight Mach number was iterated from $0.8\leq M_1\leq 5.0$ using the other input parameters from the unchoked validation case A. The overall efficiency $\eta_o$, thrust $T_{total}$, and TSFC were analyzed against the varied flight Mach number to determine its effect on the parameters.
 
 \subsection{Effect of Flight Altitude} % Part D
-The flight altitude was iterated from $2 km \leq z \leq 30 km$ using the other input parameters from the unchoked validation case A. This variability was analyzed to deterine how $\eta_o$, $T_{total}$, and TSFC are affected.
+The flight altitude was iterated from $2 km \leq z \leq 30 km$ using the other input parameters from the unchoked validation case A. This variability was analyzed to determine how $\eta_o$, $T_{total}$, and TSFC are affected.
 
 \subsection{Optimizing TSFC} % Part E
 The input parameters from the unchoked validation case A were used while iterating $2 km \leq z \leq 20 km$ in steps of 500 m. For each of these flight altitude values the flight Mach number $M_1$ was iterated to find the values that would maximize $\eta_o$ and minimize the TSFC.
@@ -601,15 +601,15 @@ Using the input parameters from validation case A with $z=4300m$ and $M_1=2.4$, 
 Using the input parameters from case A with $z=4300m$ and $M_1=2.4$, the nozzle efficiency was iterated from $0.5\leq\eta_n\leq1.0$ in steps of 0.05. The variation of the nozzle efficiency was compared against the calculated $\eta_o$, $T_{total}$, and TSFC.
 
 \subsection{Effect of \texorpdfstring{\textit{$M_2$}}{M2}} % Part H
-The input parameters from case A were used with $z=4300m$ and $M_1=2.4$ and the combustor inlet Mach number $M_2$ was varied from $0.1\leq M_2\leq2.5$ in steps of 0.1 to calculate $\eta_o$, $T_{total}$, and TSFC. The affect of the combustor inlet Mach on the three performance parameters was analyzed.
+The input parameters from case A were used with $z=4300m$ and $M_1=2.4$ and the combustor inlet Mach number $M_2$ was varied from $0.1\leq M_2\leq2.5$ in steps of 0.1 to calculate $\eta_o$, $T_{total}$, and TSFC. The effect of the combustor inlet Mach on the three performance parameters was analyzed.
 
 \subsection{Optimized Ram/Scramjet Propulsion System} % Part I
-The parametric analysis tool was used to design a ram/scramjet propulsion system for hypersonic flight at $M_1=5$ and $z=90,000ft$ (27,400 m) with the same fuel heating value $q_f$ and inlet/diffuser and nozzle efficiencies as in case A and the combustor exti total temperature was limited to $\left(T_{t3}\right)_{max}\leq2400K$. The combustor inlet Mach $M_2$ and the combustor exit toal temperature $T_{t3}$ were iterated to find two sets of the parameters that would maximize the thrust and that would maximize the overall efficiency.
+The parametric analysis tool was used to design a ram/scramjet propulsion system for hypersonic flight at $M_1=5$ and $z=90,000ft$ (27,400 m) with the same fuel heating value $q_f$ and inlet/diffuser and nozzle efficiencies as in case A and the combustor exit total temperature was limited to $\left(T_{t3}\right)_{max}\leq2400K$. The combustor inlet Mach $M_2$ and the combustor exit toal temperature $T_{t3}$ were iterated to find two sets of parameters that would maximize the thrust and that would maximize the overall efficiency.
 
 
 \section{Results} \label{sec:results}
 \subsection{\textit{T-s} Diagrams for Validation Cases} % Part A
-The \textit{T-s} diagrams for case A and B are plotted in Figure \ref{fig:partavalida} and Figure \ref{fig:partavalidb} respectively. It can be seen that the entropy from state 1-2 and state 3-4 increases 
+The \textit{T-s} diagrams for cases A and B are plotted in Figure \ref{fig:partavalida} and Figure \ref{fig:partavalidb} respectively. It can be seen that the entropy from state 1-2 and state 3-4 increases 
 
 \begin{figure}[hbt!] % Part A: T-s diagram for validation case A
     \centering
