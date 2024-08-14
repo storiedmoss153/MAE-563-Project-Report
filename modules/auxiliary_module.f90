@@ -78,4 +78,32 @@ module auxiliary_module
                                    dmyary_1(2),Area_e)
         all_output_array = [dmyary_6(12),dmyary_6(6),dmyary_6(8)]
     end function all_all_module
+
+    function export_all_outputs(z,M1,eta_d,M2,qf,Tt3_max,eta_n,Area_e) &
+             result(mach_output_array)
+        implicit none
+
+        real(dp), intent(in) :: z, M1, eta_d, M2, qf, Tt3_max, eta_n, Area_e
+        integer :: i
+        real(dp) :: dmyary_1(7), dmyary_2(8), dmyary_3(9)
+        real(dp) :: dmyary_4(11), dmyary_5(10), dmyary_6(13)
+        real(dp) :: mach_output_array(6,13)
+
+        dmyary_1 = M1_all_function(z,M1)
+        dmyary_2 = M2_all_function(dmyary_1(3),dmyary_1(2),dmyary_1(4), &
+                                M1,M2,eta_d)
+        dmyary_3 = M3_all_function(dmyary_2(1),Tt3_max,dmyary_2(4), &
+                                dmyary_2(3),M2,dmyary_2(8))
+        dmyary_4 = M4_all_function(dmyary_3(1),dmyary_1(2),dmyary_3(6), &
+                                eta_n,dmyary_3(9),Area_e)
+        dmyary_5 = M5_all_function(dmyary_1(2),dmyary_3(6),dmyary_4(2), &
+                                dmyary_4(4),eta_n,dmyary_4(11))
+        dmyary_6 = M6_all_function(dmyary_3(3),qf,dmyary_4(9),dmyary_4(8), &
+                                dmyary_1(7),dmyary_4(3),dmyary_1(2), &
+                                dmyary_1(2),Area_e)
+        do i = 1,13
+            mach_output_array(:,i) = [dmyary_1(i),dmyary_2(i),dmyary_3(i), &
+                                        dmyary_4(i),dmyary_5(i),dmyary_6(i)]
+        end do
+    end function export_all_outputs
 end module auxiliary_module
