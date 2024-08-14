@@ -7,7 +7,7 @@
 \usepackage{amsmath}
 \usepackage[version=4]{mhchem}
 \usepackage{siunitx}
-\usepackage{longtable,tabularx}
+\usepackage{multirow,longtable,tabularx}
 \usepackage[super]{nth}
 \setlength\LTleft{0pt}
 
@@ -843,13 +843,13 @@ The
 \end{figure}
 The
 
-\begin{table}[hbt!]
+\begin{table}[hbt!] % Part I: table of optimal hypersonic ram/scramjet parameters
     \caption{\label{tab:design_propsys}Optimal Ram/Scramjet Parameters}
     \centering
     \begin{tabular}{lcccc}
         \hline
-            & \multicolumn{4}{c}{Ram/Scramjet Properties}\\
-            Optimizing Parameter& $M_2$& $T_{t3}(K)$& $T_{total}(N)$& $\eta_o$\\\hline
+            \multirow{2}{*}{Optimizing Parameters}& \multicolumn{4}{c}{Ram/Scramjet Properties}\\
+            & $M_2$& $T_{t3}(K)$& $T_{total}(N)$& $\eta_o$\\\hline
             Positive Total Thrust& 0.405& 2400& 2166.102& 0.1308\\
             Overall Efficiency& 0.405& 2400& 2166.102& 0.1308\\
         \hline
