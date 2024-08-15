@@ -113,7 +113,7 @@ The analysis tool was then used by iterating the inputs to observe how the perfo
 \section{Theory} \label{sec:theory}
 The ram/scramjet is "basically one of the most simple types of aircraft engine," consisting of an inlet/diffuser, a combustion system, and an exit nozzle. The system primarily produces thrust through ram action requiring the engine to be moving to create thrust, so zero thrust is produced at zero flight speed. Aircraft utilizing ram/scramjet propulsion systems will also need another method of propulsion to boost the speed of the aircraft close to Mach 1 before the ramjet system produces a usable amount of thrust. \cite{nasa1956ramjetperformance}.
 
-The ram/scramjet operate on the Brayton cycle. Oncoming airflow is compressed by the inlet/diffuser through ram compression. The kinetic energy of the air is converted to pressure energy as it passes through the diffuser \cite{rycey1996jetengine}. The pressure increase is dependent on the isentropic efficiency of the diffuser. For ramjets, the flow speed of the oncoming air is slowed to under Mach 0.4, and Scramjets are defined by the Mach entering the combustor being supersonic.
+The ram/scramjet operate on the Brayton cycle. Oncoming airflow is compressed by the inlet/diffuser through ram compression. The kinetic energy of the air is converted to pressure energy as it passes through the diffuser \cite{rycey1996jetengine}. The pressure increase is dependent on the isentropic efficiency of the diffuser. For ramjets, the flow speed of the oncoming air is slowed to under Mach 0.4, while Scramjets are defined by the Mach entering the combustor being supersonic.
 
 The airflow then has liquid fuel injected into it prior to entering the combustion chamber. The liquid fuel needs to be atomized, vaporized, and mixed in with the airflow before the combustion process occurs \cite{oates1997aerothermodynamics}.
 
@@ -121,9 +121,9 @@ The combustor adds heat to the fuel-air mixture through combustion to increase t
 
 The exiting flow from the combustor then travels through the converging-only nozzle. In the converging nozzle, subsonic flow will be sped up and supersonic flow will be slowed down. The supersonic flow will be slowed down to Mach 1 at the smallest cross section of the converging nozzle and if subsonic flow is accelerated enough it reach its maximum speed of Mach 1 in the throat of the nozzle. This phenomenon is called nozzle choking.
 
+The fuel-air mixture leaving a non-choked nozzle will be at ambient air temperature. When leaving a choked nozzle, the gas mixture will not be at ambient air temperatures and will travel through expansion, compression, and shock waves to equalize its pressure with the surrounding air. This process is highly irreversible.
 
-
-The flow from the compressor then expands through the nozzle before exiting the nozzle and either expands or compresses to ambient pressure. The gas then cools to ambient temperatures.
+The gas at ambient pressure then equalizes with the surrounding air to complete the Brayton cycle.
 
 
 \section{Tool Calculations} \label{sec:tool_calculations}
