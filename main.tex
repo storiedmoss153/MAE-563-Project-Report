@@ -660,12 +660,6 @@ However, it can be seen in Fig. \ref{fig:partbtemp} that the temperature reading
     \caption{\label{fig:partctotaltemperature}Total Temperature vs Flight Mach Number}
 \end{figure}
 
-\begin{figure}[H] % Part C: velocity for varied flight Mach
-    \centering
-    \includegraphics[]{media/performance_parameter_files/part_c_velocity.pdf}
-    \caption{\label{fig:partcvelocity}Velocity vs Flight Mach Number}
-\end{figure}
-
 \subsubsection{Overall Efficiency}
 The relation between the overall efficiency and the flight Mach number can be seen in Fig. \ref{fig:partcetao}. It can be seen that increasing the flight Mach number leads to an increase in $\eta_o$ rising to a maximum value of $\eta_o\approx0.275$ at $M_1\approx3.25$. After this value, the overall efficiency rapidly decreases as the Mach increases.
 
@@ -674,7 +668,23 @@ The relation between the overall efficiency and the flight Mach number can be se
     \includegraphics[]{media/performance_parameter_files/part_c_eta_o.pdf}
     \caption{\label{fig:partcetao}Overall Efficiency vs Flight Mach Number}
 \end{figure}
-The
+
+The overall efficiency is comprised of the propulsive and thermal efficiency seen in Eq. \ref{eqn:etao}. From the velocity plot in Fig. \ref{fig:partcvelocity}, it can be seen using Eq. \ref{eqn:etap} that the propulsive efficiency will increase with the Mach number reaching an efficiency of 1 at $M_1=5$ since $V_{eq}=V_1$. 
+
+\begin{figure}[H] % Part C: velocity for varied flight Mach
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_c_velocity.pdf}
+    \caption{\label{fig:partcvelocity}Velocity vs Flight Mach Number}
+\end{figure}
+
+This means that the thermal efficiency must be what causes the overall efficiency to decrease after $M_1\approx3.25$. Rearranging Eq. \ref{eqn:etath} by canceling out like terms gives,
+
+\begin{equation}
+    \label{eqn:partcetath}
+    \eta_{th}=\frac{\frac{1}{2}\left[(1+f)V_{eq}^2-V_1^2\right]}{q_{23}}
+\end{equation}
+
+where the fuel-air mass ratio $f\approx0.06$ at $M_1=0.8$ and decreases to $f\approx0.03$ at $M_1=5$. 
 
 \subsubsection{Total Thrust}
 The
