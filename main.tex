@@ -39,7 +39,7 @@ The citation \cite{porembski2024github}.
     \caption{\label{fig:propsys} The Ramjet Propulsion System}
 \end{figure}
 
-To analyze the ramjet, the analysis tool was broken down into 5 modules focusing on an individual section of the flow path through the jet in Fig.~\ref{fig:propsys} and one module for calculating performance parameters. These modules take the given parameters listen in Table~\ref{tab:tool_inputs} along with the gas constant of air $R$, the ratio of specific heats $\gamma$, the gravitational acceleration $g$, and the specific heat $c_p$.
+To analyze the ramjet, the analysis tool was broken down into 5 modules focusing on an individual section of the flow path through the jet in Fig.~\ref{fig:propsys} and one module for calculating performance parameters. These modules take the given parameters listed in Table~\ref{tab:tool_inputs} along with the gas constant of air $R$, the ratio of specific heats $\gamma$, the gravitational acceleration $g$, and the specific heat $c_p$.
 
 \begin{table}[H] % Table of Tool Inputs
     \caption{\label{tab:tool_inputs} Parametric Analysis Tool Inputs}
@@ -114,9 +114,9 @@ The analysis tool was then used by iterating the inputs to observe how the perfo
 \section{Theory} \label{sec:theory}
 The ram/scramjet is "basically one of the most simple types of aircraft engine," consisting of an inlet/diffuser, a combustion system, and an exit nozzle. The system primarily produces thrust through ram action requiring the engine to be moving to create thrust, so zero thrust is produced at zero flight speed. Aircraft utilizing ram/scramjet propulsion systems will also need another method of propulsion to boost the speed of the aircraft close to Mach 1 before the ramjet system produces a usable amount of thrust. \cite{nasa1956ramjetperformance}.
 
-The ram/scramjet operate on the Brayton cycle. Oncoming airflow is compressed by the inlet/diffuser through ram compression. The kinetic energy of the air is converted to pressure energy as it passes through the diffuser \cite{rycey1996jetengine}. The pressure increase is dependent on the isentropic efficiency of the diffuser. For ramjets, the flow speed of the oncoming air is slowed to under Mach 0.4, while Scramjets are defined by the Mach entering the combustor being supersonic.
+The ram/scramjet operates on the Brayton cycle. Oncoming airflow is compressed by the inlet/diffuser through ram compression. The kinetic energy of the air is converted to pressure energy as it passes through the diffuser \cite{rycey1996jetengine}. The pressure increase is dependent on the isentropic efficiency of the diffuser. For ramjets, the flow speed of the oncoming air is slowed to under Mach 0.4, while Scramjets are defined by the Mach entering the combustor being supersonic.
 
-The airflow then has liquid fuel injected into it prior to entering the combustion chamber. The liquid fuel needs to be atomized, vaporized, and mixed in with the airflow before the combustion process occurs \cite{oates1997aerothermodynamics}.
+The airflow then has liquid fuel injected into it before entering the combustion chamber. The liquid fuel needs to be atomized, vaporized, and mixed in with the airflow before the combustion process occurs \cite{oates1997aerothermodynamics}.
 
 The combustor adds heat to the fuel-air mixture through combustion to increase the temperature of the mixture to the thermal limits of the engine materials. When adding heat in the combustor it is necessary to determine if the combustor will be thermally choked. Thermal choking occurs when the heat addition for the Mach entering the combustor is so large that no combination of thermodynamic and flow conditions can absorb the heat. The only solution is for the Mach entering the combustor to be reduced to accommodate the added heat such that the Mach leaving the combustor $M_3=1$. This is accomplished by unstarting the inlet of the ramjet where a normal shock forms in front of the inlet to reduce the free stream Mach which will reduce the Mach entering the combustor \cite{dahm2023project}. Any further fuel that is injected into the combustor to increase the temperature past the choked temperature will be wasted.
 
@@ -129,7 +129,7 @@ The gas at ambient pressure then equalizes with the surrounding air to complete 
 
 \section{Tool Calculations} \label{sec:tool_calculations}
 \subsection{State 1: Free Stream}
-The properties of the free stream entering the propulsion system were modeled using the isentropic model of the atmosphere. This was split into two sections, properties for altitudes under 7958 meters and for properties above 7958 meters. For altitudes $z<7958$ m, Eq.~\eqref{eqn:T1_low} and Eq.~\eqref{eqn:p1_low} were used with $T_s=288$ K, $p_s=101.3$ kPa, $\gamma=1.4$, and $z^*=8404$ m to find the static temperature $T_1$ and static pressure $p_1$ of state 1. $\gamma$ was taken as 1.4.
+The properties of the free stream entering the propulsion system were modeled using the isentropic model of the atmosphere. This was split into two sections, properties for altitudes under 7958 meters and properties above 7958 meters. For altitudes $z<7958$ m, Eq.~\eqref{eqn:T1_low} and Eq.~\eqref{eqn:p1_low} were used with $T_s=288$ K, $p_s=101.3$ kPa, $\gamma=1.4$, and $z^*=8404$ m to find the static temperature $T_1$ and static pressure $p_1$ of state 1. $\gamma$ was taken as 1.4.
 
 \begin{equation}
     \label{eqn:T1_low}
@@ -268,7 +268,7 @@ and the constants used to solve for $M_3$.
     \left(M_3^2\right)=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \end{equation}
 
-The only roots that were selected from the quadratic equation where those where $\left(M_3^2\right)>0$. Then if $M_2<1$ then $M_3>M_2$ and $M_3\leq1$, and if $M_2>1$ then $M_3<M_2$ and $M_3\geq1$. The heat per unit mass $q_{23}$ that was added in the combustor was calculated using Eq.~\eqref{eqn:q23}.
+The only roots that were selected from the quadratic equation were those where $\left(M_3^2\right)>0$. Then if $M_2<1$ then $M_3>M_2$ and $M_3\leq1$, and if $M_2>1$ then $M_3<M_2$ and $M_3\geq1$. The heat per unit mass $q_{23}$ that was added in the combustor was calculated using Eq.~\eqref{eqn:q23}.
 
 \begin{equation}
     \label{eqn:q23}
@@ -613,14 +613,14 @@ Using the input parameters from case A with $z=4300m$ and $M_1=2.4$, the nozzle 
 The input parameters from case A were used with $z=4300m$ and $M_1=2.4$ and the combustor inlet Mach number $M_2$ was varied from $0.1\leq M_2\leq2.5$ in steps of 0.1 to calculate $\eta_o$, $T_{total}$, and TSFC. The effect of the combustor inlet Mach on the three performance parameters was analyzed.
 
 \subsection{Optimized Ram/Scramjet Propulsion System} % Part I
-The parametric analysis tool was used to design a ram/scramjet propulsion system for hypersonic flight at $M_1=5$ and $z=90,000ft$ (27,400 m) with the same fuel heating value $q_f$ and inlet/diffuser and nozzle efficiencies as in case A and the combustor exit total temperature was limited to $\left(T_{t3}\right)_{max}\leq2400K$. The combustor inlet Mach $M_2$ and the combustor exit toal temperature $T_{t3}$ were iterated to find two sets of parameters that would maximize the thrust and that would maximize the overall efficiency.
+The parametric analysis tool was used to design a ram/scramjet propulsion system for hypersonic flight at $M_1=5$ and $z=90,000ft$ (27,400 m) with the same fuel heating value $q_f$ and inlet/diffuser and nozzle efficiencies as in case A and the combustor exit total temperature was limited to $\left(T_{t3}\right)_{max}\leq2400K$. The combustor inlet Mach $M_2$ and the combustor exit total temperature $T_{t3}$ were iterated to find two sets of parameters that would maximize the thrust and that would maximize the overall efficiency.
 
 
 \section{Results} \label{sec:results}
 \subsection{\textit{T-s} Diagrams for Validation Cases} % Part A
-The \textit{T-s} diagrams for case A and B are plotted in Figure \ref{fig:partavalida} and Figure \ref{fig:partavalidb} respectively. It can be seen that the entropy from state 1-2 and state 3-4 increases which was expected from the given isentropic efficiencies of the inlet/diffuser and nozzle.
+The \textit{T-s} diagrams for cases A and B are plotted in Figure \ref{fig:partavalida} and Figure \ref{fig:partavalidb} respectively. It can be seen that the entropy from state 1-2 and state 3-4 increases which was expected from the given isentropic efficiencies of the inlet/diffuser and nozzle.
 
-The area contained within the plots is proportional to the thrust generated by the engine. It can be seen that the non-thermally choked case A encloses a larger area than the thermally choked case B. This behaviour is expected as for the thermally choked case the teperature of state 3 is limited which puts a limit on the size of the \textit{T-s} diagram and the total thrust from the ramjet.
+The area contained within the plots is proportional to the thrust generated by the engine. It can be seen that the non-thermally choked case A encloses a larger area than the thermally choked case B. This behavior is expected as for the thermally choked case the temperature of state 3 is limited which puts a limit on the size of the \textit{T-s} diagram and the total thrust from the ramjet.
 
 \begin{figure}[H] % Part A: T-s diagram for validation case A
     \centering
@@ -643,7 +643,7 @@ When comparing the isentropic atmosphere model to the ICAO standard atmosphere i
     \caption{\label{fig:partbpres}ICAO Standard Atmosphere vs Isentropic Model (Pressure)}
 \end{figure}
 
-However, it can be seen in Fig. \ref{fig:partbtemp} that the temperature readings from the isentropic atmosphere model vary significantly from the ICAO standard atmosphere. When comparing the 1\% temperature extremes \cite{nasa1976standardatmos} to the isentropic model it can be seen that, for the altitude range of interest, the isentropic model lies within the temperature limits. Since the model is within the vairablility of the atmosphere, it is acceptible to use for the atmosphere's temperature variablility in the ram/scramjet analysis.
+However, it can be seen in Fig. \ref{fig:partbtemp} that the temperature readings from the isentropic atmosphere model vary significantly from the ICAO standard atmosphere. When comparing the 1\% temperature extremes \cite{nasa1976standardatmos} to the isentropic model it can be seen that, for the altitude range of interest, the isentropic model lies within the temperature limits. Since the model is within the variability of the atmosphere, it is acceptable to use for the atmosphere's temperature variability in the ram/scramjet analysis.
 
 \begin{figure}[H] % Part B: Atmosphere Validation comparing Isen to ICAO: Temperature
     \centering
@@ -653,7 +653,7 @@ However, it can be seen in Fig. \ref{fig:partbtemp} that the temperature reading
 
 \subsection{Effect of Flight Mach Number} % Part C
 \subsubsection{Overall Efficiency}
-The
+The relation between the overall efficiency and the flight Mach number can be seen in Fig. \ref{fig:partcetao}. It can be seen that increasing the flight Mach number leads to an increase in $\eta_o$ rising to a maximum value of $\eta_o\approx0.275$ at $M_1\approx3.25$. After this value, the overall efficiency rapidly decreases as the Mach increases.
 
 \begin{figure}[H] % Part C: overall efficiency for varied flight Mach
     \centering
@@ -928,7 +928,7 @@ Although a conclusion may review the main points of the paper, it must not repli
     & $c_{pe}$& 1360& 1146& J/(kg-K)\\
     & $a_e$& 882& 576& m/s\\
     & $V_e$& 882& 576& m/s\\
-    & $m_e$& 9.0& 21.2& kg/s\\
+    & $\dot{m}_e$& 9.0& 21.2& kg/s\\
     & $\Delta s_{3e}$& 12.0& 12.0& J/(kg-K)\\
     & $\Delta s_{1e}$& 2164& 671& J/(kg-K)\\\hline
     Module 5& $M_4$& 1.90& 2.02\\
@@ -941,8 +941,8 @@ Although a conclusion may review the main points of the paper, it must not repli
     & $V_4$& 1447& 985& m/s\\
     & $\Delta s_{e4}$& 195.6& 260& J/(kg-K)\\
     & $\Delta s_{14}$& 2630& 931& J/(kg-K)\\\hline
-    Module 6& $m_f$& 0.46& 0.27& kg/s\\
-    & $m_i$& 8.6& 21.0& kg/s\\
+    Module 6& $\dot{m}_f$& 0.46& 0.27& kg/s\\
+    & $\dot{m}_i$& 8.6& 21.0& kg/s\\
     & $f$& 0.054& 0.013\\
     & $T_{jet}$& 1508& -3572& N\\
     & $T_{pressure}$& 5265& 8543& N\\
