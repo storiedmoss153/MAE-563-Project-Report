@@ -717,12 +717,15 @@ The reason that the nozzle exit static pressure is greater than the atmospheric 
     \caption{\label{fig:partcmach}Ramjet Mach Number vs Flight Mach Number}
 \end{figure}
 
-For the jet thrust of the ramjet, Fig. \ref{fig:partcvelocity} and Fig. \ref{fig:partcmach} shows the exit velocity remaining constant due to the choked converging-only nozzle while the inlet velocity increases. From Eq. \ref{eqn:Thrust} and the fuel-air mass ratio in Fig. \ref{fig:partcdimless} it can be seen that the $V_e$ term will be raised slightly by 3\% to 6\%. However, 
+For the jet thrust of the ramjet, Fig. \ref{fig:partcvelocity} and Fig. \ref{fig:partcmach} shows the exit velocity remaining constant due to the choked converging-only nozzle while the inlet velocity increases. From Eq. \ref{eqn:Thrust} and the fuel-air mass ratio in Fig. \ref{fig:partcdimless} it can be seen that the $V_e$ term will be raised slightly by 3\% to 6\%. However, it can be seen in Fig. \ref{fig:partcmass} that the negative jet thrust at higher flight Mach numbers will be multiplied by greater values of $\dot{m}_i$.
 
-\begin{figure}[H]
+\begin{figure}[H] % Mass Flow Rate for varied flight Mach
     \centering
-    \includegraphics[]{media/performance_parameter_files/part_c_}
+    \includegraphics[]{media/performance_parameter_files/part_c_mass_flow_rate.pdf}
+    \caption{\label{fig:partcmass}Mass Flow Rate vs Flight Mach Number}
 \end{figure}
+
+So, around $M_1\approx4.25$ the change in the negative jet thrust becomes greater than the change in the positive pressure thrust causing the total thrust to rapidly decrease. The individual 
 
 \subsubsection{Thrust Specific Fuel Consumption}
 The
