@@ -703,10 +703,18 @@ Fig. \ref{fig:partct} shows the effect that the flight Mach number has on the to
 \end{figure}
 From Eq. \ref{eqn:Thrust} and the static pressure variations in Fig. \ref{fig:partcstatpres}, it can be seen that the pressure thrust from the ramjet engine will increase with the increasing flight Mach number as $A_e=0.015m^2$ and $p_1=58.3kPa$ remain constant.
 
-\begin{figure}[H]
+\begin{figure}[H] % Part C: Static Pressure for varied flight Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_c_static_pressure.pdf}
     \caption{\label{fig:partcstatpres}Static Pressure vs Flight Mach Number}
+\end{figure}
+
+The reason that the nozzle exit static pressure is greater than the atmospheric pressure is due to the converging nozzle being choked for $M_1>0.82$ as seen in Fig. \ref{fig:partcmach}. The increasing $p_e$ is also due to the decreasing $M_3$ as from Eq. \ref{eqn:pt3} where the decreasing Mach causes $p_{t3}$ to increase which increases $p_e$ in Eq. \ref{eqn:chokepe}.
+
+\begin{figure}[H] % Part C: Ramjet Mach for varied flight Mach
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_c_mach_number.pdf}
+    \caption{\label{fig:partcmach}Ramjet Mach Number vs Flight Mach Number}
 \end{figure}
 
 \subsubsection{Thrust Specific Fuel Consumption}
