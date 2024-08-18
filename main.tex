@@ -653,13 +653,6 @@ However, it can be seen in Fig. \ref{fig:partbtemp} that the temperature reading
 \end{figure}
 
 \subsection{Effect of Flight Mach Number} % Part C
-
-% \begin{figure}[H] % Part C: total temperature for varied flight Mach
-%     \centering
-%     \includegraphics[]{media/performance_parameter_files/part_c_total_temperature.pdf}
-%     \caption{\label{fig:partctotaltemperature}Total Temperature vs Flight Mach Number}
-% \end{figure}
-
 \subsubsection{Overall Efficiency}
 The relation between the overall efficiency and the flight Mach number can be seen in Fig. \ref{fig:partcetao}. It can be seen that increasing the flight Mach number leads to an increase in $\eta_o$ rising to a maximum value of $\eta_o\approx0.275$ at $M_1\approx3.25$. After this value, the overall efficiency rapidly decreases as the Mach increases.
 
@@ -684,7 +677,15 @@ This means that the thermal efficiency must be what causes the overall efficienc
     \eta_{th}=\frac{\frac{1}{2}\left[(1+f)V_{eq}^2-V_1^2\right]}{q_{23}}
 \end{equation}
 
-where the fuel-air mass ratio $f\approx0.06$ at $M_1=0.8$ and decreases to $f\approx0.03$ at $M_1=5$. 
+where the fuel-air mass ratio $f\approx0.06$ at $M_1=0.8$ and decreases to $f\approx0.03$ at $M_1=5$ which slightly raises the $V_{eq}^2$ term. The relation between the heat added in the combustor to the flight Mach number can be seen in Fig. \ref{fig:partcheat} where the amount of heat decreases due to the increasing total temperature $T_{t2}$ entering the combustor as the flow speed is decreased from $M_1$ to $M_2=0.15$. Since the combustor is not thermally choked, enough heat is able to be added so that the total temperature leaving the combustor reaches the material limits $T_{t3}=(T_{t3})_{max}=2400K$.
+
+\begin{figure}[H] % Part C: total temperature for varied flight Mach
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_c_heat.pdf}
+    \caption{\label{fig:partcheat}Heat Per Unit Mass vs Flight Mach Number}
+\end{figure}
+
+From Fig. \ref{fig:partcvelocity} and Fig. \ref{fig:partcheat}, the maximum thermal efficiency can be approximated to be $2\lessapprox\eta_{th}\lessapprox2.5$
 
 \subsubsection{Total Thrust}
 The
