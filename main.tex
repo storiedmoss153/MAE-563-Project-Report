@@ -590,7 +590,7 @@ since the specific heat was defined using Eq. \ref{eqn:latercp} for this section
     \left(\frac{dT}{ds}\right)_p=\frac{T}{c_p} \quad \rightarrow \quad dT=\frac{T}{c_p}ds
 \end{equation}
 
-since $c_p$ was taken as a constant value of 1004 J/kg-K.
+since $c_p$ was taken as a constant value of 1004 J/kg-K. $ds$ was split into 1000 steps resulting in $ds=2.11$ J/(kg-K).
 
 \subsection{Atmospheric Model Validation} % Part B
 The isentropic atmosphere model used in module 1 for calculating the static temperature and pressure of the free stream entering the ram/scramjet was compared to the tabulated ICAO Standard Atmosphere \cite{hill1992propulsion}.
@@ -744,14 +744,43 @@ Fig. \ref{fig:partctsfc} shows how the TSFC varies with the flight Mach number. 
 
 \subsection{Effects of Flight Altitude} % Part D
 \subsubsection{Overall Efficiency}
-The
+The overall efficiency starts at its maximum value of $\eta_o=0.2505$ at $z=2km$ then rapidly decreases to its minimum value $\eta_o=0.2378$ at $z=7.97km$ where it remains at this lowest value for the higher flight altitudes. This trend closely resembles the shape of the isentropic model of the atmosphere's temperature in Fig. \ref{fig:partbtemp}, where the temperature decreases from $0m\leq z\leq7958m$ before remaining constant at $z>7958m$.
 
 \begin{figure}[H] % Part D: overall efficiency for varied flight altitude
     \centering
     \includegraphics[]{media/performance_parameter_files/part_d_eta_o.pdf}
     \caption{\label{fig:partdetao}Overall Efficiency vs Flight Altitude}
 \end{figure}
-The
+Looking at the variability of the velocities in Fig. \ref{fig:partdvelocity}, it can be seen that the flight velocity $V_1$ decreases until $z=7958m$ then remains constant at $V_1=697.03m/s$ while the equivalent velocity $V_{eq}$ remains at a relatively constant value of $V_{eq}=1466.28m/s$. This change in the flight velocity is not due to a change in flight Mach number but rather the change in temperature and thus the speed of sound.
+
+\begin{figure}[H] % Part D: velocity for varied flight altitude
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_d_velocity.pdf}
+    \caption{\label{fig:partdvelocity}Velocity vs Flight Altitude}
+\end{figure}
+Fig. \ref{fig:partdspeedofsound} shows the changing flight speed of sound which was calculated from Eq. \ref{eqn:a1} which is why it follows the same trend as the isentropic temperature model.
+
+\begin{figure}[H] % Part D: speed of sound for varied flight altitude
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_d_speed_of_sound.pdf}
+    \caption{\label{fig:partdspeedofsound}Speed of Sound vs Flight Altitude}
+\end{figure}
+
+So, from the velocities in Fig. \ref{fig:partdvelocity} it can be deduced that the propulsive efficiency will also follow the same trend as the isentropic temperature model, which can be seen in Fig. \ref{fig:partddimless}.
+
+\begin{figure}[H] % Part D: dimensionless parameters for varied flight altitude
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_d_dimless.pdf}
+    \caption{\label{fig:partddimless}Dimensionless Parameters vs Flight Altitude}
+\end{figure}
+For the thermal efficiency $\eta_{th}$ the rearranged Eq. \ref{eqn:partcetath} can again be used to analyze its trend in Fig. \ref{fig:partddimless}. The fuel-air mass ratio remains at a relatively consistant value of $f=0.054$ which slightly shifts the $V_{eq}^2$ term higher, so the numerator of Eq. \ref{eqn:partcetath} will increase until $z=7958m$ then remain constant. The heat per unit mass added in the combustor can be seen in Fig. \ref{fig:partdheat}.
+
+\begin{figure}[H] % Part D: heat per unit mass for varied flight altitude
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_d_heat.pdf}
+    \caption{\label{fig:partdheat}Heat per Unit Mass vs Flight Altitude}
+\end{figure}
+Here it can be seen that the added heat has the opposite relation to the isentropic temperature model. From Eq. \ref{eqn:Tt1} and Eq. \ref{eqn:Tt2} it is known that the total temperature entering the combustor $T_{t2}$ will follow the isentropic temperature model. It is also known that the temperature leaving the combustor $T_{t3}=\left(T_{t3}\right)_{max}$ as the combustor is not thermally choked in validation case A. So, as $T_{t2}$ decreases more heat is needed to be added in the combustor to reach $\left(T_{t3}\right)_{max}$. This shows the trend of $\eta_{th}$ seen in Fig. \ref{fig:partddimless} which when multiplied with $\eta_p$ in Eq. \ref{eqn:etao} gives the overall efficiency trend in Fig. \ref{fig:partdetao}.
 
 \subsubsection{Total Thrust}
 The
