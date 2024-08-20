@@ -734,7 +734,7 @@ So, around $M_1\approx4.25$ the change in the negative jet thrust becomes greate
 \end{figure}
 
 \subsubsection{Thrust Specific Fuel Consumption}
-Fig. \ref{fig:partctsfc} shows how the TSFC varies with the flight Mach number. It can be seen that the TSFC slowly decreases to its minimum value $TSFC\approx0.25$ at $M_1\approx2$ then slowly increases until $M_1\approx4.25$ at which point it rapidly increases to its maximum value at $M_1=5$. The rapid increase of the TSFC after $M_1\approx4.25$ is attributed to the decline in the total thrust around the same flight Mach number.
+Fig. \ref{fig:partctsfc} shows how the TSFC varies with the flight Mach number. It can be seen that the TSFC slowly decreases to its minimum value $TSFC\approx0.25$ at $M_1\approx2$ then slowly increases until $M_1\approx4.25$ at which point it rapidly increases to its maximum value at $M_1=5$. The rapid increase of the TSFC after $M_1\approx4.25$ is attributed to the decline in the total thrust around the same flight Mach number. It also makes sense that the TSFC will increase at higher flight Mach numbers as more fuel will need to be added to the increasingly compressed air entering the combustor.
 
 \begin{figure}[H] % Part C: TSFC for varied flight Mach
     \centering
@@ -773,7 +773,7 @@ So, from the velocities in Fig. \ref{fig:partdvelocity} it can be deduced that t
     \includegraphics[]{media/performance_parameter_files/part_d_dimless.pdf}
     \caption{\label{fig:partddimless}Dimensionless Parameters vs Flight Altitude}
 \end{figure}
-For the thermal efficiency $\eta_{th}$ the rearranged Eq. \ref{eqn:partcetath} can again be used to analyze its trend in Fig. \ref{fig:partddimless}. The fuel-air mass ratio remains at a relatively consistant value of $f=0.054$ which slightly shifts the $V_{eq}^2$ term higher, so the numerator of Eq. \ref{eqn:partcetath} will increase until $z=7958m$ then remain constant. The heat per unit mass added in the combustor can be seen in Fig. \ref{fig:partdheat}.
+For the thermal efficiency $\eta_{th}$ the rearranged Eq. \ref{eqn:partcetath} can again be used to analyze its trend in Fig. \ref{fig:partddimless}. The fuel-air mass ratio remains at a relatively consistent value of $f=0.054$ which slightly shifts the $V_{eq}^2$ term higher, so the numerator of Eq. \ref{eqn:partcetath} will increase until $z=7958m$ then remain constant. The heat per unit mass added in the combustor can be seen in Fig. \ref{fig:partdheat}.
 
 \begin{figure}[H] % Part D: heat per unit mass for varied flight altitude
     \centering
@@ -783,24 +783,43 @@ For the thermal efficiency $\eta_{th}$ the rearranged Eq. \ref{eqn:partcetath} c
 Here it can be seen that the added heat has the opposite relation to the isentropic temperature model. From Eq. \ref{eqn:Tt1} and Eq. \ref{eqn:Tt2} it is known that the total temperature entering the combustor $T_{t2}$ will follow the isentropic temperature model. It is also known that the temperature leaving the combustor $T_{t3}=\left(T_{t3}\right)_{max}$ as the combustor is not thermally choked in validation case A. So, as $T_{t2}$ decreases more heat is needed to be added in the combustor to reach $\left(T_{t3}\right)_{max}$. This shows the trend of $\eta_{th}$ seen in Fig. \ref{fig:partddimless} which when multiplied with $\eta_p$ in Eq. \ref{eqn:etao} gives the overall efficiency trend in Fig. \ref{fig:partdetao}.
 
 \subsubsection{Total Thrust}
-The trend of the total thrust resembles the isentropic pressure model of the atmosphere as seen in Fig. \ref{fig:partdt} having a continuously decreasing trend rather than the segmented decrease as seen in the isentropic temperature model. The ramjet produces it's maximum thrust $T=8.708kN$ at the lowest altitude of $z=2km$ and produces it's minimum thrust $T=0.153kN$ at $z=30km$.
+The trend of the total thrust resembles the isentropic pressure model of the atmosphere as seen in Fig. \ref{fig:partdt} having a continuously decreasing trend rather than the segmented decrease as seen in the isentropic temperature model. The ramjet produces its maximum thrust $T=8.708kN$ at the lowest altitude of $z=2km$ and produces its minimum thrust $T=0.153kN$ at $z=30km$.
 
 \begin{figure}[H] % Part D: total thrust for varied flight altitude
     \centering
     \includegraphics[]{media/performance_parameter_files/part_d_T.pdf}
     \caption{\label{fig:partdt}Total Thrust vs Flight Altitude}
 \end{figure}
-The
+Focusing on the pressure thrust term of the total thrust first, Fig. \ref{fig:partdstatpres} shows the static pressures throughout the ramjet decreasing as the flight altitude increases. The higher $p_2$ and $p_3$ values are due to the deceleration of the oncoming air from $M_1=2.4$ to $M_2=0.15$ as it enters the combustor. $p_e$ is lower than $p_2=p_3$ from the acceleration of the air-fuel mixture through the nozzle to $M_e=1$.
+
+\begin{figure}[H] % Part D: static pressure for varied flight altitude
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_d_static_pressure.pdf}
+    \caption{\label{fig:partdstatpres}Static Pressure vs Flight Altitude}
+\end{figure}
+From Fig. \ref{fig:partdstatpres} and the pressure thrust term of Eq. \ref{eqn:Thrust} it can be deduced that the pressure thrust will follow the same decreasing trend that the isentropic pressure model exhibits. The jet thrust of the ramjet can be assumed to be much lower than the pressure thrust from $V_e-V_1$ being small. The $V_e-V_1$ term will also show the segmented distribution that is present in the isentropic temperature model.
+
+\begin{figure}[H] % Part D: mass flow rate for varied flight altitude
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_d_mass_flow_rate.pdf}
+    \caption{\label{fig:partdmassflowrate}Mass Flow Rate vs Flight Altitude}
+\end{figure}
+From Fig. \ref{fig:partdmassflowrate} it can be seen that the inlet mass flow rate is what will smooth out the curve of the jet thrust. This can be seen in Fig. \ref{fig:partdallthrust}.
+
+\begin{figure}[H] % Part D: all thrust for varied flight altitude
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_d_all_thrust.pdf}
+    \caption{\label{fig:partdallthrust}Thrust Components vs Flight Altitude}
+\end{figure}
 
 \subsubsection{Thrust Specific Fuel Consumption}
-The
+The TSFC curve in Fig. \ref{fig:partdtsfc} follows the isentropic temperature model due to the isentropic pressure curve being "divided out" through the total thrust. It is also seen that the TSFC decreases with increasing flight altitude due to the density of the atmosphere decreasing with increasing altitude, so less fuel is required to fully burn less air entering the combustor.
 
 \begin{figure}[H] % Part D: TSFC for varied flight altitude
     \centering
     \includegraphics[]{media/performance_parameter_files/part_d_TSFC.pdf}
     \caption{\label{fig:partdtsfc}TSFC vs Flight Altitude}
 \end{figure}
-The
 
 \subsection{Optimizing TSFC and \texorpdfstring{$\eta_o$}{eta\_o}} % Part E
 The
