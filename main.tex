@@ -822,19 +822,21 @@ The TSFC curve in Fig. \ref{fig:partdtsfc} follows the isentropic temperature mo
 \end{figure}
 
 \subsection{Optimizing TSFC and \texorpdfstring{$\eta_o$}{eta\_o}} % Part E
-The
+Fig. \ref{fig:parte1-5} shows the trends of the optimal flight Mach for the $\eta_o$ and $TSFC$. The overall trends follow the isentropic temperature model with a linear sloped section followed by a section of zero slope; however, the optimal flight Mach for the TSFC has a large discontinuity between $3km<z<3.5km$ going from $M_1=4.963$ to $M_1=2.021$. While a discontinuity in the plot is not completely out of the realm of possibility due to the flight Mach number being limited to $M_1\leq5$ the value dropping by 60\% is unexpected.
 
 \begin{figure}[H] % Part E: optimize overall efficiency and TSFC for varied flight altitude with Mach 1-5
     \centering
     \includegraphics[]{media/performance_parameter_files/part_e_range_1_5.pdf}
     \caption{\label{fig:parte1-5}Optimizing Overall Efficiency and TSFC, Mach 1-5 (Supersonic Limit)}
 \end{figure}
+When the flight Mach number limit is increased into the hypersonic range, $M>5$, in Fig. \ref{fig:parte1-10} it can be seen that the discontinuity in Fig. \ref{fig:parte1-5} goes away and the TSFC continues its linear slope before leveling out. An interesting difference between the supersonic and hypersonic limits is how the optimal flight Mach for $\eta_o$ more than doubles in the hypersonic range than in the supersonic range.
 
 \begin{figure}[H] % Part E: optimize overall efficiency and TSFC for varied flight altitude with Mach 1-10
     \centering
     \includegraphics[]{media/performance_parameter_files/part_e_range_1_10.pdf}
     \caption{\label{fig:parte1-10}Optimizing Overall Efficiency and TSFC, Mach 1-10 (Hypersonic Limit)}
 \end{figure}
+The comparison of the two flight Mach ranges shows that not limiting the flight speed to supersonic conditions allows the ramjet to fly faster while also optimizing either $\eta_o$ or the $TSFC$.
 
 \subsection{Effects of Inlet/Diffuser Efficiency} % Part F
 The
