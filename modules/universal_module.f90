@@ -48,7 +48,7 @@ module universal_module
     
         ! Write the data to the file
         do i = 1, n
-            write(unit, '(F20.10, ",", F20.10)') array1(i), array2(i)
+            write(unit, '(*(F20.10, ","))') array1(i), array2(i)
         end do
     
         ! Close the file
@@ -74,7 +74,7 @@ module universal_module
     
         ! Write the data to the file
         do i = 1, n
-            write(unit, '(F20.10, ",", F20.10, ",", F20.10)') &
+            write(unit, '(*(F20.10, ","))') &
                   array1(i), array2(i), array3(i)
         end do
     
@@ -101,7 +101,7 @@ module universal_module
     
         ! Write the data to the file
         do i = 1, n
-            write(unit, '(F20.10, ",", F20.10, ",", F20.10, ",", F20.10)') &
+            write(unit, '(*(F20.10, ","))') &
                   array1(i), array2(i), array3(i), array4(i)
         end do
     

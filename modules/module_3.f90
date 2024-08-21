@@ -29,8 +29,7 @@ module module_3
         real(dp) :: Tt3_choked
 
         Tt3_choked = Tt2 * ((1 + gamma_3 * M2**2)**2 / (2 * (gamma_3 + 1) * &
-         M2**2)  &
-                     * (1 + 0.5 * (gamma_3 - 1) * M2**2)**(-1))
+         M2**2) * (1 + 0.5 * (gamma_3 - 1) * M2**2)**(-1))
 
     end function M3_thermal_choking
 
