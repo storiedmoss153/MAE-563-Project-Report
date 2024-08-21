@@ -725,7 +725,7 @@ For the jet thrust of the ramjet, Fig. \ref{fig:partcvelocity} and Fig. \ref{fig
     \caption{\label{fig:partcmass}Mass Flow Rate vs Flight Mach Number}
 \end{figure}
 
-So, around $M_1\approx4.25$ the change in the negative jet thrust becomes greater than the change in the positive pressure thrust causing the total thrust to rapidly decrease. The individual thrust components can be seen in Fig. \ref{fig:partcallthrust}.
+So, around $M_1\approx4.25$ the change in the negative jet thrust becomes greater than the change in the positive pressure thrust causing the total thrust to decrease rapidly. The individual thrust components can be seen in Fig. \ref{fig:partcallthrust}.
 
 \begin{figure}[H] % All Thrusts for varied flight Mach
     \centering
@@ -813,7 +813,7 @@ From Fig. \ref{fig:partdmassflowrate} it can be seen that the inlet mass flow ra
 \end{figure}
 
 \subsubsection{Thrust Specific Fuel Consumption}
-The TSFC curve in Fig. \ref{fig:partdtsfc} follows the isentropic temperature model due to the isentropic pressure curve being "divided out" through the total thrust in Eq. \ref{eqn:TSFC}. It is also seen that the TSFC decreases with increasing flight altitude due to the density of the atmosphere decreasing with increasing altitude, so less fuel is required to fully burn less air entering the combustor.
+The TSFC curve in Fig. \ref{fig:partdtsfc} follows the isentropic temperature model due to the isentropic pressure curve being "divided out" through the total thrust in Eq. \ref{eqn:TSFC}. It is also seen that the TSFC decreases with increasing flight altitude due to the density of the atmosphere decreasing with increasing altitude, so less fuel is required to completely burn less air entering the combustor.
 
 \begin{figure}[H] % Part D: TSFC for varied flight altitude
     \centering
@@ -841,7 +841,7 @@ The comparison of the two flight Mach ranges shows that not limiting the flight 
 \subsection{Effects of Inlet/Diffuser Efficiency} % Part F
 
 \subsubsection{Overall Efficiency}
-Fig. \ref{fig:partfetao} shows that the overall efficiency of the ramjet increases with the inlet/diffuser efficiency. This behaviour is expected as when the inlet/diffuser efficiency increases, the ramjet needs to do less work on the oncoming gas to recoup the losses from the inlet/diffuser. It is also seen that the slope of the overall efficiency decreases as $\eta_d$ approaches an efficiency of 1 as the efficiency of something cannot be greater than 1. This decreasing slope also shows that improving the efficiency of the inlet/diffuser to near perfect conditions provides diminishing returns as improving $\eta_d$ from $\approx85\%$ to 100\% only increases the overall efficiency of the ramjet by 1\%.
+Fig. \ref{fig:partfetao} shows that the overall efficiency of the ramjet increases with the inlet/diffuser efficiency. This behavior is expected as when the inlet/diffuser efficiency increases, the ramjet needs to do less work on the oncoming gas to recoup the losses from the inlet/diffuser. It is also seen that the slope of the overall efficiency decreases as $\eta_d$ approaches an efficiency of 1 as the efficiency of something cannot be greater than 1. This decreasing slope also shows that improving the efficiency of the inlet/diffuser to near-perfect conditions provides diminishing returns as improving $\eta_d$ from $\approx85\%$ to 100\% only increases the overall efficiency of the ramjet by 1\%.
 
 \begin{figure}[H] % Part F: overall efficiency for varied inlet/diffuser efficiency
     \centering
@@ -850,7 +850,7 @@ Fig. \ref{fig:partfetao} shows that the overall efficiency of the ramjet increas
 \end{figure}
 
 \subsubsection{Total Thrust}
-The total thrust increases as the efficiency of the inlet/diffuser increases as seen in Fig. \ref{fig:partft}. Unlike the decreasing slope of the overall efficiency in Fig. \ref{fig:partfetao}, the slope of the total thrust increases with the increasing $\eta_d$. Using the same example of $\eta_d$ change as for the $\eta_o$, increasing $\eta_d$ from $\approx85\%$ to 100\% causes the total thrust to increas by 40\%. So, while improving $\eta_d$ to near perfect conditions did not provide substantial $\eta_o$ gains, there are substantial $T_{total}$ gains to be made by further optimizations to the inlet/diffuser.
+The total thrust increases as the efficiency of the inlet/diffuser increases as seen in Fig. \ref{fig:partft}. Unlike the decreasing slope of the overall efficiency in Fig. \ref{fig:partfetao}, the slope of the total thrust increases with the increasing $\eta_d$. Using the same example of $\eta_d$ change as for the $\eta_o$, increasing $\eta_d$ from $\approx85\%$ to 100\% causes the total thrust to increase by 40\%. So, while improving $\eta_d$ to near-perfect conditions did not provide substantial $\eta_o$ gains, there are substantial $T_{total}$ gains to be made by further optimizations to the inlet/diffuser.
 
 \begin{figure}[H] % Part F: total thrust for varied inlet/diffuser efficiency
     \centering
@@ -870,7 +870,7 @@ Fig. \ref{fig:partftsfc} shows that the $TSFC$ follows the same decaying slope a
 \subsection{Effects of Nozzle Efficiency} % Part G
 
 \subsubsection{Overall Efficiency}
-Fig. \ref{fig:partgetao} shows the relation of the overall efficiency with the nozzle efficiency. Similar trends are seen in this figure that are present in Fig. \ref{fig:partfetao}, the overall efficiency increases with the increasing nozzle efficiency while the slope of the curve decreases with the increasing $\eta_n$. Unlike with the varying $\eta_d$, the nozzle efficiency can be reduced to 70\% and only negatively impact the overall efficiency by 1\%. It can also be seen that for $0.5\leq\eta_o\leq1.0$ the range that the overall efficiency encompases is $0.215\leq\eta_o\left(\eta_n\right)\leq0.247$ while for the same range for the inlet/diffuser efficiency $0.195\leq\eta_o\left(\eta_d\right)\leq0.25$.
+Fig. \ref{fig:partgetao} shows the relation of the overall efficiency with the nozzle efficiency. Similar trends are seen in this figure that are present in Fig. \ref{fig:partfetao}, the overall efficiency increases with the increasing nozzle efficiency while the slope of the curve decreases with the increasing $\eta_n$. Unlike with the varying $\eta_d$, the nozzle efficiency can be reduced to 70\% and only negatively impact the overall efficiency by 1\%. It can also be seen that for $0.5\leq\eta_o\leq1.0$ the range that the overall efficiency encompasses is $0.215\leq\eta_o\left(\eta_n\right)\leq0.247$ while for the same range for the inlet/diffuser efficiency $0.195\leq\eta_o\left(\eta_d\right)\leq0.25$.
 
 \begin{figure}[H] % Part G: overall efficiency for varied nozzle efficiency
     \centering
