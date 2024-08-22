@@ -821,7 +821,7 @@ The TSFC curve in Fig. \ref{fig:partdtsfc} follows the isentropic temperature mo
     \caption{\label{fig:partdtsfc}TSFC vs Flight Altitude}
 \end{figure}
 
-\subsection{Optimizing TSFC and \texorpdfstring{$\eta_o$}{eta\_o}} % Part E
+\subsection{Optimizing TSFC and \texorpdfstring{$\eta_o$}{Overall Efficiency}} % Part E
 Fig. \ref{fig:parte1-5} shows the trends of the optimal flight Mach for the $\eta_o$ and $TSFC$. The overall trends follow the isentropic temperature model with a linear sloped section followed by a section of zero slope; however, the optimal flight Mach for the TSFC has a large discontinuity between $3km<z<3.5km$ going from $M_1=4.963$ to $M_1=2.021$. While a discontinuity in the plot is not completely out of the realm of possibility due to the flight Mach number being limited to $M_1\leq5$ the value dropping by 60\% is unexpected.
 
 \begin{figure}[H] % Part E: optimize overall efficiency and TSFC for varied flight altitude with Mach 1-5
@@ -899,25 +899,34 @@ Fig. \ref{fig:partgtsfc} shows that the TSFC decreases with the efficiency of th
 \subsection{Effects of \texorpdfstring{$M_2$}{M2}} % Part H
 
 \subsubsection{Overall Efficiency}
-Ignoring the overall efficiency drop off at $M_2=1$ at first, Fig. \ref{fig:parthetao} shows that the general trend of the overall efficiency is to increase slightly reaching its maximum value $\eta_o=0.313$ at $M_2=0.4$ before decreasing into negative values and achieving a minimum non-asymptotic value of $\eta_o=-1.05$ at $M_2=2.5$. With the asymptote, it can be seen in the figure that there is a major discontinuity in the overall efficiency at $M_2=1$ where the overall efficiency goes to $-\infty$. 
+Ignoring the overall efficiency drop off at $M_2=1$ at first, Fig. \ref{fig:parthetao} shows that the general trend of the overall efficiency is to increase slightly reaching its maximum value $\eta_o=0.313$ at $M_2=0.4$ before decreasing into negative values and achieving a minimum non-asymptotic value of $\eta_o=-1.05$ at $M_2=2.5$. With the asymptote, it can be seen in the figure that there is a major discontinuity in the overall efficiency at $M_2=1$ where the overall efficiency becomes undefined. 
 
 \begin{figure}[H] % Part H: overall efficiency for varied combustor Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_eta_o.pdf}
     \caption{\label{fig:parthetao}Overall Efficiency vs \texorpdfstring{\textit{$M_2$}}{M2}}
 \end{figure}
+This can be explained by looking at the variability of the Mach numbers of the ram/scramjet engine in Fig. \ref{fig:parthmach}. The nozzle exit Mach is choked for $M_2\leq2.2$ and it is seen that the combustor becomes thermally choked starting at $M_2=0.3$.
 
 \begin{figure}[H] % Part H: Mach number for varied combustor Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_mach.pdf}
     \caption{\label{fig:parthmach}Mach Number vs \texorpdfstring{\textit{$M_2$}}{M2}}
 \end{figure}
+Because of this thermally choking, as $M_2$ increases to Mach 1 the right-hand side of Eq. \ref{eqn:Tt3/Tt2} approaches 1. When this happens $T_{t3}$ becomes equal to $T_{t2}$ as seen in Fig. \ref{fig:parthtottemp}.
 
 \begin{figure}[H] % Part H: total temperature for varied combustor Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_total_temp.pdf}
     \caption{\label{fig:parthtottemp}Total Temperature vs \texorpdfstring{\textit{$M_2$}}{M2}}
-\end{figure}    
+\end{figure}
+The heat per unit mass added in the combustor is calculated from the difference of the squares of the total temperature across the combustor as in Eq. \ref{eqn:q23}. So, at $M_2=1$ there is no heat added to in the combustor as seen in Fig. \ref{fig:parthheat}.
+
+\begin{figure}[H] % Part H: heat per unit mass for varied combustor Mach
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_h_heat.pdf}
+    \caption{\label{fig:parthheat}Heat per Unit Mass vs \texorpdfstring{\textit{$M_2$}}{M2}}
+\end{figure}
 
 \subsubsection{Total Thrust}
 The
