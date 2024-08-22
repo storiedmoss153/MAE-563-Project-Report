@@ -906,7 +906,7 @@ Ignoring the overall efficiency drop off at $M_2=1$ at first, Fig. \ref{fig:part
     \includegraphics[]{media/performance_parameter_files/part_h_eta_o.pdf}
     \caption{\label{fig:parthetao}Overall Efficiency vs \texorpdfstring{\textit{$M_2$}}{M2}}
 \end{figure}
-This can be explained by looking at the variability of the Mach numbers of the ram/scramjet engine in Fig. \ref{fig:parthmach}. The nozzle exit Mach is choked for $M_2\leq2.2$ and it is seen that the combustor becomes thermally choked starting at $M_2=0.3$.
+This can be explained by looking at the variability of the Mach numbers of the ram/scramjet engine in Fig. \ref{fig:parthmach}. The nozzle exit Mach is choked for $M_2\leq2.2$ and it is seen that the combustor becomes thermally choked starting from $M_2\geq0.3$.
 
 \begin{figure}[H] % Part H: Mach number for varied combustor Mach
     \centering
@@ -930,12 +930,19 @@ The heat per unit mass added in the combustor is calculated from the difference 
 So, looking at Eq. \ref{eqn:etath} for the thermal efficiency of the ram/scramjet engine as $q_{23}$ goes to zero, the thermal efficiency of the engine goes to infinity. It also makes sense that $V_{eq}\leq V_1$ will be negative to cause the thermal efficiency and overall efficiency to be negative.
 
 \subsubsection{Total Thrust}
-The
+The total thrust of the ram/scramjet is shown in Fig. \ref{fig:partht} which illustrates that the maximum thrust produced by the engine is when the combustor is operated as close to thermally choking as possible. At $M_2=0.7$ the total thrust becomes negative and remains negative for the rest of the tested combustor Mach numbers with the minimum thrust achieved is $T_{total}=-1.245kN$ at $M_2=1$.
 
 \begin{figure}[H] % Part H: total thrust for varied combustor Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_T.pdf}
     \caption{\label{fig:partht}Total Thrust vs \texorpdfstring{\textit{$M_2$}}{M2}}
+\end{figure}
+Looking at Fig. \ref{fig:partHallthrust} shows the individual thrust components of Eq. \ref{eqn:Thrust}.
+
+\begin{figure}[H] % Part H: all thrust for varied combustor Mach
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_h_all_thrust.pdf}
+    \caption{\label{fig:parthallthrust}Thrust Components vs \texorpdfstring{\textit{$M_2$}}{M2}}
 \end{figure}
 
 \subsubsection{Thrust Specific Fuel Consumption}
