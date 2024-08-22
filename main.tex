@@ -937,7 +937,21 @@ The total thrust of the ram/scramjet is shown in Fig. \ref{fig:partht} which ill
     \includegraphics[]{media/performance_parameter_files/part_h_T.pdf}
     \caption{\label{fig:partht}Total Thrust vs \texorpdfstring{\textit{$M_2$}}{M2}}
 \end{figure}
-Looking at Fig. \ref{fig:partHallthrust} shows the individual thrust components of Eq. \ref{eqn:Thrust}.
+Using the pressure trends in Fig. \ref{fig:parthstatpress} the pressure thrust of the engine can be analyzed. The altitude of the engine does not change so the exit pressure is the driving force of the pressure thrust. The exit pressure rapidly increases until the combustor is thermally choked at $M_2=0.3$ where it closely follows the $p_2$ pressure curve. Once the $p_2$ value drops below the ambient pressure then $p_e=p_1$ after $M_2\geq2.3$.
+
+\begin{figure}[H] % Part H: static pressure for varied combustor Mach
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_h_static_pressure.pdf}
+    \caption{\label{fig:parthstatpress}Static Pressure vs \texorpdfstring{\textit{$M_2$}}{M2}}
+\end{figure}
+For the jet thrust of the ram/scramjet the velocity trends in Fig. \ref{fig:parthvelocity} were analyzed. Like the pressure thrust, the property of the exit of the engine is the primary driver of the jet thrust. When the combustor becomes thermally choked $V_e$ becomes less than $V_1$ and reaches a value of $V_e=414.27m/s$ at $M_2=1$ and a minimum value of $V_e=349.72m/s$ at $M_2=2.5$.
+
+\begin{figure}[H] % Part H: velocity for varied combustor Mach
+    \centering
+    \includegraphics[]{media/performance_parameter_files/part_h_velocity.pdf}
+    \caption{\label{fig:parthvelocity}Velocity vs \texorpdfstring{\textit{$M_2$}}{M2}}
+\end{figure}
+Looking at the individual thrust components in Fig. \ref{fig:parthallthrust} it is seen that the minimum jet trust does not occur at $M_2=1$ but at $M_2=0.7$ which is due to the maximum $\dot(m)_e$ and $\dot(m)_i$ being at $M_2=0.6$. The maximum values occurring at lower combustor Mach numbers are due to the shape of the $p_e$ plot in Fig. \ref{fig:parthstatpress} and how $\dot(m)_e$ is calculated from Eq. \ref{eqn:mdote}.
 
 \begin{figure}[H] % Part H: all thrust for varied combustor Mach
     \centering
