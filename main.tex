@@ -899,7 +899,7 @@ Fig. \ref{fig:partgtsfc} shows that the TSFC decreases with the efficiency of th
 \subsection{Effects of \texorpdfstring{$M_2$}{M2}} % Part H
 
 \subsubsection{Overall Efficiency}
-Ignoring the overall efficiency drop off at $M_2=1$ at first, Fig. \ref{fig:parthetao} shows that the general trend of the overall efficiency is to increase slightly reaching its maximum value $\eta_o=0.313$ at $M_2=0.4$ before decreasing into negative values and achieving a minimum non-asymptotic value of $\eta_o=-1.05$ at $M_2=2.5$. With the asymptote, it can be seen in the figure that there is a major discontinuity in the overall efficiency at $M_2=1$ where the overall efficiency becomes undefined. 
+Ignoring the overall efficiency drop off at $M_2=1$ at first, Fig. \ref{fig:parthetao} shows that the general trend of the overall efficiency is to increase slightly reaching its maximum value $\eta_o=0.313$ at $M_2=0.4$ before decreasing into negative values and achieving a minimum non-asymptotic value of $\eta_o=-1.05$ at $M_2=2.5$. With the asymptote, it can be seen in the figure that there is a major discontinuity in the overall efficiency at $M_2=1$ where the overall efficiency goes to $-\infty$. 
 
 \begin{figure}[H] % Part H: overall efficiency for varied combustor Mach
     \centering
@@ -920,13 +920,14 @@ Because of this thermally choking, as $M_2$ increases to Mach 1 the right-hand s
     \includegraphics[]{media/performance_parameter_files/part_h_total_temp.pdf}
     \caption{\label{fig:parthtottemp}Total Temperature vs \texorpdfstring{\textit{$M_2$}}{M2}}
 \end{figure}
-The heat per unit mass added in the combustor is calculated from the difference of the squares of the total temperature across the combustor as in Eq. \ref{eqn:q23}. So, at $M_2=1$ there is no heat added to in the combustor as seen in Fig. \ref{fig:parthheat}.
+The heat per unit mass added in the combustor is calculated from the difference of the squares of the total temperature across the combustor as in Eq. \ref{eqn:q23}. So, at $M_2=1$ no heat is added in the combustor as seen in Fig. \ref{fig:parthheat}.
 
 \begin{figure}[H] % Part H: heat per unit mass for varied combustor Mach
     \centering
     \includegraphics[]{media/performance_parameter_files/part_h_heat.pdf}
     \caption{\label{fig:parthheat}Heat per Unit Mass vs \texorpdfstring{\textit{$M_2$}}{M2}}
 \end{figure}
+So, looking at Eq. \ref{eqn:etath} for the thermal efficiency of the ram/scramjet engine as $q_{23}$ goes to zero, the thermal efficiency of the engine goes to infinity. It also makes sense that $V_{eq}\leq V_1$ will be negative to cause the thermal efficiency and overall efficiency to be negative.
 
 \subsubsection{Total Thrust}
 The
