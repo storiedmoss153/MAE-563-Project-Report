@@ -48,7 +48,7 @@ module auxiliary_module
         open (newunit=unit, file=filename, status='replace', action='write')
 
         do i = 1, n
-            write(unit, '(I0, ",", I0 ",", F20.10)') i, i, state_array(i)
+            write(unit, '(I0, ",", I0, ",", F20.10)') i, i, state_array(i)
             ! write(unit, '(F20.10)') state_array(i)
         end do
 
